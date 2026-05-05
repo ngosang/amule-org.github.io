@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>aMule — All-platform eMule-compatible eD2k/Kad client</title>
-<meta name="description" content="aMule is a free, all-platform eMule-compatible eD2k/Kad client. Linux, macOS, Windows. Now massively faster: ~300× upload throughput vs 2.3.3.">
+<meta name="description" content="aMule is a free, all-platform eMule-compatible eD2k/Kad client. Linux, macOS, Windows. Now massively faster: ~100–380× peer-to-peer throughput vs 2.3.3.">
 <link rel="icon" type="image/png" href="assets/aMule-icon.png">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -15,7 +15,7 @@
     <img src="assets/aMule-icon.png" alt="aMule logo" class="hero-icon">
     <h1>aMule</h1>
     <p class="tagline">All-platform eMule-compatible eD2k/Kad client</p>
-    <p class="alive-banner"><span class="badge">3.0.0</span> &nbsp;<strong>aMule is alive again.</strong> First major release in five years — and roughly <strong>300×</strong> faster on uploads.</p>
+    <p class="alive-banner"><span class="badge">3.0.0</span> &nbsp;<strong>aMule is alive again.</strong> First major release in five years — and up to <strong>~380×</strong> faster.</p>
     <div class="cta-row">
       <a class="cta primary" href="https://github.com/amule-org/amule/releases/latest">Download latest release</a>
       <a class="cta secondary" href="https://github.com/amule-org/amule">View on GitHub</a>
@@ -71,14 +71,14 @@
   <h2>3.0.0 highlights</h2>
   <div class="hl-grid">
     <div class="hl-card hl-major">
-      <div class="hl-num">~300×</div>
-      <div class="hl-label">Per-peer upload throughput</div>
-      <div class="hl-detail">~450 KB/s → ~140 MB/s on the same hardware. Disk I/O moved off the main thread, ASIO/EPOLLET races fixed, adaptive packet sizing.</div>
+      <div class="hl-num">~100–380×</div>
+      <div class="hl-label">Peer-to-peer download throughput</div>
+      <div class="hl-detail">Disk I/O off the main thread, ASIO/EPOLLET races fixed, throttlers replaced with proper token-bucket limiters. <a href="#bench">See the numbers →</a></div>
     </div>
     <div class="hl-card hl-major">
-      <div class="hl-num">up to 4.3×</div>
-      <div class="hl-label">Per-peer download throughput</div>
-      <div class="hl-detail">Throttler-wake fix on the control-queue path. Windows now sustains 42 MB/s — ~1.9× eMule 0.70b on identical hardware.</div>
+      <div class="hl-num">~4.8×</div>
+      <div class="hl-label">vs eMule 0.70b on Windows</div>
+      <div class="hl-detail">aMule 3.0.0 sustains ~106 MB/s on upload (vs 22 MB/s eMule) and ~39 MB/s on download (vs 20 MB/s eMule), same UTM hardware.</div>
     </div>
     <div class="hl-card">
       <div class="hl-num">CMake</div>
@@ -104,7 +104,7 @@
   <p class="hl-link"><a href="https://github.com/amule-org/amule/blob/master/docs/CHANGELOG.md">Full 3.0.0 changelog →</a></p>
 </section>
 
-<section class="block bench">
+<section class="block bench" id="bench">
   <h2>Throughput, measured</h2>
   <p class="bench-lead">3.0.0 vs 2.3.3 on the same hardware. Single eD2k peer downloading a 30 GB file from a Linux seeder over a local LAN, sustained over the last 30 s of a 90 s window.</p>
   <div class="bench-grid">
@@ -142,18 +142,27 @@
       <div class="bench-breakdown"><span>seeder fix: <strong>19×</strong></span> · <span>+ leecher: <strong>5.8×</strong></span></div>
     </div>
   </div>
-  <h3 class="bench-vs-heading">vs eMule</h3>
-  <div class="bench-grid bench-grid-vs">
-    <div class="bench-card bench-card-vs">
-      <div class="bench-host">Windows · aMule 3.0.0 vs eMule 0.70b</div>
-      <div class="bench-host-detail">same hardware, same seeder, same 30 GB file</div>
+  <h3 class="bench-vs-heading">vs eMule 0.70b · Windows</h3>
+  <div class="bench-grid">
+    <div class="bench-card">
+      <div class="bench-host">Upload</div>
+      <div class="bench-host-detail">Windows seeds → Mac leecher</div>
       <div class="bench-numbers">
-        <div class="bench-old"><span class="bench-old-num">20.5</span><span class="bench-old-unit">MB/s</span><span class="bench-old-tag">eMule 0.70b</span></div>
+        <div class="bench-old"><span class="bench-old-num">22</span><span class="bench-old-unit">MB/s</span><span class="bench-old-tag">eMule 0.70b</span></div>
+        <div class="bench-arrow">→</div>
+        <div class="bench-new"><span class="bench-new-num">106</span><span class="bench-new-unit">MB/s</span><span class="bench-new-tag">aMule 3.0.0</span></div>
+      </div>
+      <div class="bench-mult">~4.8× faster</div>
+    </div>
+    <div class="bench-card">
+      <div class="bench-host">Download</div>
+      <div class="bench-host-detail">Linux seeds → Windows leeches</div>
+      <div class="bench-numbers">
+        <div class="bench-old"><span class="bench-old-num">20</span><span class="bench-old-unit">MB/s</span><span class="bench-old-tag">eMule 0.70b</span></div>
         <div class="bench-arrow">→</div>
         <div class="bench-new"><span class="bench-new-num">39</span><span class="bench-new-unit">MB/s</span><span class="bench-new-tag">aMule 3.0.0</span></div>
       </div>
-      <div class="bench-mult">1.9× faster</div>
-      <div class="bench-breakdown">measured peer-to-peer with the seeder polling its own upload rate via EC; eMule has no remote-control protocol so leecher-side probing isn't possible</div>
+      <div class="bench-mult">~1.9× faster</div>
     </div>
   </div>
 

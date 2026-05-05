@@ -203,6 +203,15 @@ main {
   letter-spacing: -0.02em;
 }
 .hl-card.hl-major .hl-num { color: #ffffff; }
+.hl-card.hl-major a {
+  display: block;
+  margin-top: 0.5rem;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
 .hl-label {
   font-weight: 600;
   margin-bottom: 0.5rem;
