@@ -1,0 +1,54 @@
+site_name: aMule Documentation
+site_description: aMule — A multi-platform eMule-like client for the eDonkey and Kademlia networks
+site_author: The aMule Team
+site_url: https://amule-org.github.io/
+repo_url: https://github.com/amule-org/amule
+repo_name: amule-org/amule
+
+docs_dir: site
+site_dir: public
+
+theme:
+  name: material
+  language: en
+  logo: assets/aMule-icon.png
+  favicon: assets/aMule-icon.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.top
+    - navigation.footer
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: suffix
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: es
+          name: Español
+          build: true
+          nav_translations:
+            Home: Inicio
+            User Guide: Guía de usuario
+            Getting Started: Primeros pasos
+
+nav:
+  - Home: docs/index.md
+  - User Guide:
+    - Getting Started: docs/user-guide/getting-started.md

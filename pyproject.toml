@@ -1,0 +1,8 @@
+[project]
+name = "amule-org"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "mkdocs-material>=9.0.0",
+    "mkdocs-static-i18n>=1.0.0",
+]

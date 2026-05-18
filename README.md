@@ -1,28 +1,90 @@
 # amule-org.github.io
 
-Source for the aMule project landing page at [https://amule-org.github.io](https://amule-org.github.io).
+Source for the aMule project website at [https://amule-org.github.io](https://amule-org.github.io).
 
-Plain static HTML / CSS / JS — no build step. GitHub Pages serves this directory directly (Jekyll is disabled via `.nojekyll`).
+The entire site is managed by [MkDocs](https://www.mkdocs.org/) using `site/` as the source directory:
 
-## Layout
+- **Landing page** — plain static HTML/CSS/JS at `site/` root, copied as-is to the output
+- **Documentation** — Markdown sources under `site/docs/`, published at `/docs/`
 
-| File | What it is |
-| ---- | ---------- |
-| [`index.html`](index.html) | The landing page itself |
-| [`style.css`](style.css) | Single stylesheet, dark by default with `prefers-color-scheme: light` support |
-| [`lightbox.js`](lightbox.js) | Vanilla-JS modal for the screenshots gallery (keyboard nav + captions) |
-| [`assets/`](assets/) | Icons (PNG + SVG) and screenshots |
+A single `mkdocs build` produces the complete site. A single `mkdocs serve` serves both the landing page and the documentation locally.
 
-## Editing
+Deployment is handled automatically by GitHub Actions on every push to `master`.
 
-Open `index.html` in a browser to preview, or run a local HTTP server for proper relative paths:
+## Repository layout
 
-```sh
-python3 -m http.server 8000
-# then http://127.0.0.1:8000/
+```
+├── .github/workflows/deploy.yml   # CI/CD: builds and deploys to GitHub Pages
+├── site/                          # MkDocs docs_dir (source of truth)
+│   ├── index.html                 # Landing page (copied as-is to output root)
+│   ├── style.css
+│   ├── lightbox.js
+│   ├── assets/
+│   └── docs/                      # MkDocs Markdown sources → published at /docs/
+│       ├── index.md
+│       └── getting-started/
+│           ├── installation.md
+│           └── configuration.md
+├── .gitignore
+├── Makefile
+├── mkdocs.yml                     # MkDocs configuration (docs_dir: site, site_dir: public)
+├── pyproject.toml                 # Python project (uv)
+└── uv.lock
 ```
 
-Push to `master` and GitHub Pages re-deploys within a minute.
+## Requirements
+
+The build requires [uv](https://docs.astral.sh/uv/). Install it with:
+
+```sh
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Or via pip:
+
+```sh
+pip install uv
+```
+
+## Working locally
+
+Install dependencies:
+
+```sh
+make install
+# equivalent to: uv sync
+```
+
+Serve the full site (landing page + docs) locally at `http://127.0.0.1:8000`:
+
+```sh
+make serve
+# equivalent to: uv run mkdocs serve
+```
+
+Build the complete site into `public/`:
+
+```sh
+make build
+# equivalent to: uv run mkdocs build
+```
+
+Remove the build output:
+
+```sh
+make clean
+```
+
+## Deployment
+
+Push to `master` and GitHub Actions will:
+
+1. Install dependencies with `uv sync`
+2. Run `uv run mkdocs build` — produces the complete site in `public/`
+3. Deploy `public/` directly to GitHub Pages
+
+> **Note:** GitHub Pages must be configured to deploy from **GitHub Actions** (not from a branch).
+> Go to **Settings → Pages → Source** and select **GitHub Actions**.
 
 ## Useful links
 
