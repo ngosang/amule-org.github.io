@@ -1,0 +1,80 @@
+baseURL       = "https://amule-org.github.io/"
+title         = "aMule"
+contentDir    = "content/en"
+defaultContentLanguage         = "en"
+defaultContentLanguageInSubdir = false
+
+enableRobotsTXT = true
+
+# [languages] MUST be declared before [module] — Docsy requirement
+[languages]
+  [languages.en]
+    label      = "English"
+    contentDir = "content/en"
+    weight     = 1
+    [languages.en.params]
+      title       = "aMule"
+      description = "aMule — A multi-platform eMule-compatible eD2k/Kad client"
+  [languages.es]
+    label      = "Español"
+    contentDir = "content/es"
+    weight     = 2
+    [languages.es.params]
+      title       = "aMule"
+      description = "aMule — Un cliente eD2k/Kad compatible con eMule para todas las plataformas"
+
+[params]
+  # Docsy global params
+  copyright      = "The aMule developers"
+  github_repo    = "https://github.com/amule-org/amule"
+  github_project_repo = "https://github.com/amule-org/amule"
+
+  # Offline / local search (Lunr) — no API key required
+  offlineSearch = true
+
+  # Docsy UI settings
+  [params.ui]
+    sidebar_menu_compact = true
+    sidebar_search_disable = true   # using top-bar search instead
+    breadcrumb_disable = false
+    navbar_logo = true
+    navbar_translucent_over_cover_disable = true
+    footer_about_enable = false
+
+  [params.links]
+    [[params.links.user]]
+      name  = "Discussions"
+      url   = "https://github.com/amule-org/amule/discussions"
+      icon  = "fa fa-comments"
+      desc  = "Community discussions"
+    [[params.links.user]]
+      name  = "Issues"
+      url   = "https://github.com/amule-org/amule/issues"
+      icon  = "fa fa-bug"
+      desc  = "Bug reports and feature requests"
+    [[params.links.developer]]
+      name  = "GitHub"
+      url   = "https://github.com/amule-org/amule"
+      icon  = "fab fa-github"
+      desc  = "aMule source code on GitHub"
+    [[params.links.developer]]
+      name  = "Releases"
+      url   = "https://github.com/amule-org/amule/releases"
+      icon  = "fa fa-tag"
+      desc  = "Release downloads"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true   # allow raw HTML in Markdown (needed for some doc pages)
+  [markup.highlight]
+    style = "tango"
+
+[module]
+  proxy = "direct"
+  [module.hugoVersion]
+    extended = true
+    min      = "0.157.0"
+  [[module.imports]]
+    path    = "github.com/google/docsy"
+    disable = false

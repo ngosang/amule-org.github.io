@@ -1,0 +1,12 @@
+# Hugo build output
+public/
+
+# Hugo module cache and build artifacts
+/resources/_gen/
+.hugo_build.lock
+
+# Node.js dependencies
+node_modules/
+
+# Hugo module Go files (go.sum is committed; these are caches)
+/tmp/

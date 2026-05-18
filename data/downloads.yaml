@@ -1,0 +1,4 @@
+version: "3.0.0"
+releases_url: "https://github.com/amule-org/amule/releases/latest"
+changelog_url: "https://github.com/amule-org/amule/blob/master/docs/CHANGELOG.md"
+changelog_perf_url: "https://github.com/amule-org/amule/blob/master/docs/CHANGELOG.md#performance"

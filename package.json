@@ -1,0 +1,10 @@
+{
+  "name": "amule-org-website",
+  "description": "aMule project website — Hugo + Docsy",
+  "private": true,
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "postcss-cli": "^11.0.0"
+  }
+}
