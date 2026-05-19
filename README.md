@@ -2,46 +2,7 @@
 
 Source for the aMule project website at [https://amule-org.github.io](https://amule-org.github.io).
 
-The site is built with [Docusaurus v3](https://docusaurus.io/) and supports English and Spanish.
-
-## Repository layout
-
-```
-├── .github/workflows/deploy.yml          # CI/CD: builds and deploys to GitHub Pages
-├── docs/                                  # English documentation (Markdown)
-│   ├── index.md
-│   └── user-guide/
-│       └── getting-started.md
-├── i18n/
-│   └── es/
-│       ├── code.json                      # Landing page Spanish translations
-│       └── docusaurus-plugin-content-docs/current/
-│           ├── index.md                   # Spanish docs home
-│           └── user-guide/
-│               └── getting-started.md     # Spanish getting started guide
-├── src/
-│   ├── components/                        # Homepage section components
-│   │   ├── Hero/
-│   │   ├── WhatIsAMule/
-│   │   ├── DownloadSection/
-│   │   ├── HighlightsSection/
-│   │   ├── BenchmarkSection/
-│   │   ├── ScreenshotsSection/
-│   │   └── FeaturesSection/
-│   ├── css/custom.css                     # Docusaurus CSS variable overrides
-│   └── pages/
-│       └── index.tsx                      # Landing page (imports components above)
-├── static/
-│   └── img/                              # Images and icons
-│       ├── aMule-icon.png
-│       ├── social-card.png               # Open Graph social card (1200×630)
-│       ├── screenshots/                   # GUI screenshots for landing page
-│       └── docs/                          # Screenshots for documentation
-├── docusaurus.config.ts                   # Site configuration
-├── sidebars.ts                            # Documentation sidebar
-├── tsconfig.json
-└── package.json
-```
+The site is built with [Docusaurus v3](https://docusaurus.io/) and is internationalized (i18n).
 
 ## Requirements
 
@@ -79,16 +40,51 @@ Remove the build output:
 npm run clear
 ```
 
-## Deployment
+## Adding a new language
 
-Push to `master` and GitHub Actions will:
+1. **Register the locale** in `docusaurus.config.ts`:
 
-1. Install dependencies with `npm ci`
-2. Run `npm run build` — produces the complete site in `build/`
-3. Deploy `build/` directly to GitHub Pages
+   ```ts
+   i18n: {
+     defaultLocale: 'en',
+     locales: ['en', 'es', 'fr'],   // add your locale code here
+     localeConfigs: {
+       fr: {label: 'Français'},
+     },
+   },
+   ```
 
-> **Note:** GitHub Pages must be configured to deploy from **GitHub Actions** (not from a branch).
-> Go to **Settings → Pages → Source** and select **GitHub Actions**.
+2. **Generate the translation files** for the landing page:
+
+   ```sh
+   npm run write-translations -- --locale fr
+   ```
+
+   This creates `i18n/fr/code.json` with all translatable strings from the site's React components. Translate the `message` field of each entry.
+
+3. **Translate the documentation** by creating Markdown files under `i18n/fr/docusaurus-plugin-content-docs/current/`, mirroring the structure of `docs/`:
+
+   ```
+   i18n/fr/
+   ├── code.json
+   └── docusaurus-plugin-content-docs/current/
+       ├── current.json            # sidebar label translations
+       ├── index.md
+       └── user-guide/
+           └── getting-started.md
+   ```
+
+   `current.json` translates sidebar category labels. Run the following to generate it with the default English values pre-filled:
+
+   ```sh
+   npm run write-translations -- --locale fr
+   ```
+
+4. **Preview the new locale** locally:
+
+   ```sh
+   npm run start -- --locale fr
+   ```
 
 ## Useful links
 
