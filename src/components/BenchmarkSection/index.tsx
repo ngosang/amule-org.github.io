@@ -148,14 +148,14 @@ export default function BenchmarkSection(): React.JSX.Element {
         <Translate
           id="homepage.bench.foot"
           values={{
-            a: (chunks) => (
+            link: (
               <Link to="https://github.com/amule-org/amule/blob/master/docs/CHANGELOG.md#performance">
-                {chunks}
+                <Translate id="homepage.bench.foot.link">3.0.0 changelog Performance section</Translate>
               </Link>
             ),
           }}
         >
-          {'Methodology: identical hardware and network for both versions, peer-to-peer between two daemons (no real-network sources). 2.3.3 is approximated by master at the last commit before the throughput rewrites began; the eD2k wire-level path between that commit and 2.3.3 is unchanged. Per-platform breakdown of the seeder-side and leecher-side contributions in the <a>3.0.0 changelog Performance section</a>.'}
+          {'Methodology: identical hardware and network for both versions, peer-to-peer between two daemons (no real-network sources). 2.3.3 is approximated by master at the last commit before the throughput rewrites began; the eD2k wire-level path between that commit and 2.3.3 is unchanged. Per-platform breakdown of the seeder-side and leecher-side contributions in the {link}.'}
         </Translate>
       </p>
     </section>

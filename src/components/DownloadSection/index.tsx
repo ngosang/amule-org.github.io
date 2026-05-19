@@ -84,12 +84,14 @@ export default function DownloadSection(): React.JSX.Element {
         <Translate
           id="homepage.download.foot"
           values={{
-            a: (chunks) => (
-              <Link to="https://github.com/amule-org/amule/releases/latest">{chunks}</Link>
+            link: (
+              <Link to="https://github.com/amule-org/amule/releases/latest">
+                <Translate id="homepage.download.foot.link">latest release page</Translate>
+              </Link>
             ),
           }}
         >
-          {'All artifacts on the <a>latest release page</a>.'}
+          {'All artifacts on the {link}.'}
         </Translate>
       </p>
     </section>

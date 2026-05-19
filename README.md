@@ -42,6 +42,34 @@ Serve the Spanish locale at `http://localhost:3000/es/`:
 npm run start -- --locale es
 ```
 
+## Updating translations after English changes
+
+When you add, remove, or rename translatable strings in the English source (components or docs), existing locales need to be kept in sync.
+
+### UI strings (React components)
+
+Run the translation extractor for each locale. It adds any new keys and preserves existing translations:
+
+```sh
+npm run write-translations -- --locale es
+```
+
+Then open `i18n/es/code.json` and translate every entry whose `message` field is still in English (newly added keys come pre-filled with the English default).
+
+### Documentation (Markdown)
+
+`write-translations` does not touch Markdown files. For each changed page in `docs/`, manually update the corresponding file under `i18n/es/docusaurus-plugin-content-docs/current/`, keeping the same relative path.
+
+If a new page is added to `docs/`, create the equivalent file in `i18n/es/docusaurus-plugin-content-docs/current/` with the translated content. If a page is deleted from `docs/`, delete the matching file from the locale folder too.
+
+### Verify
+
+After updating translations, run a full build to catch any broken references:
+
+```sh
+npm run build
+```
+
 ## Adding a new language
 
 1. **Register the locale** in `docusaurus.config.ts`:

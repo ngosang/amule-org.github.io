@@ -49,6 +49,8 @@
 - Docs content: `i18n/<locale>/docusaurus-plugin-content-docs/current/` mirrors `docs/`.
 - Sidebar labels: `i18n/<locale>/docusaurus-plugin-content-docs/current/current.json`.
 - Add a new locale: register in `docusaurus.config.ts`, run `npm run write-translations -- --locale <code>`, then translate generated files.
+- Update translations after English changes: run `npm run write-translations -- --locale <code>` (adds new keys, preserves existing ones), then translate new entries in `code.json` and update changed docs files manually.
+- **Interpolation in `<Translate>`**: Docusaurus only supports `{varName}` placeholders — **not** `<tag>chunks</tag>` (FormatJS/react-intl syntax). For links inside translated strings use: `values={{ link: <Link to="..."><Translate id="...">text</Translate></Link> }}` with `{link}` in the message.
 
 ## Important Notes
 

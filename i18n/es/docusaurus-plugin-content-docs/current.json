@@ -1,14 +1,18 @@
 {
   "sidebar.docsSidebar.category.User Guide": {
     "message": "Guía de usuario",
-    "description": "The label for category User Guide in the sidebar"
+    "description": "The label for category 'User Guide' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.doc.Overview": {
     "message": "Visión general",
-    "description": "The label for doc index in the sidebar"
+    "description": "The label for the doc item 'Overview' in sidebar 'docsSidebar', linking to the doc index"
   },
   "sidebar.docsSidebar.doc.Getting Started": {
     "message": "Primeros pasos",
     "description": "The label for doc getting-started in the sidebar"
+  },
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
   }
 }

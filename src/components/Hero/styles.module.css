@@ -1,8 +1,12 @@
 .hero {
-  background: linear-gradient(135deg, var(--ifm-color-primary-darkest) 0%, var(--ifm-color-primary-dark) 100%);
+  background: linear-gradient(160deg, #0b1929 0%, #152f50 60%, #0d2038 100%);
   color: #fff;
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
   text-align: center;
+}
+
+:global([data-theme='dark']) .hero {
+  background: linear-gradient(160deg, #06101a 0%, #0c1e30 60%, #071727 100%);
 }
 
 .heroInner {
@@ -26,13 +30,14 @@
 
 .tagline {
   font-size: 1.2rem;
-  opacity: 0.9;
+  opacity: 0.85;
   margin-bottom: 1rem;
 }
 
 .aliveBanner {
   font-size: 1rem;
-  background: rgba(255 255 255 / 0.12);
+  background: rgba(255 255 255 / 0.08);
+  border: 1px solid rgba(255 255 255 / 0.15);
   border-radius: 8px;
   padding: 0.6rem 1rem;
   display: inline-block;
@@ -41,7 +46,7 @@
 
 .badge {
   background: var(--ifm-color-primary-lighter);
-  color: var(--ifm-color-primary-darkest);
+  color: #0b1929;
   font-weight: 700;
   font-size: 0.85rem;
   padding: 0.15rem 0.5rem;
