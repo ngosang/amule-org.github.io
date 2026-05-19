@@ -1,13 +1,15 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import Translate, {translate} from '@docusaurus/Translate';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
 export default function Hero(): React.JSX.Element {
+  const logoSrc = useBaseUrl('/img/aMule-icon.png');
   return (
     <header className={styles.hero}>
       <div className={styles.heroInner}>
-        <img src="/img/aMule-icon.png" alt="aMule logo" className={styles.heroIcon} />
+        <img src={logoSrc} alt="aMule logo" className={styles.heroIcon} />
         <h1 className={styles.heroTitle}>aMule</h1>
         <p className={styles.tagline}>
           <Translate id="homepage.tagline">All-platform eMule-compatible eD2k/Kad client</Translate>

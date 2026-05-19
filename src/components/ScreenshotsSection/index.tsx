@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import Translate, {translate} from '@docusaurus/Translate';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
 interface Screenshot {
@@ -12,28 +13,29 @@ interface Screenshot {
 
 const SCREENSHOTS: Screenshot[] = [
   {
-    src: '/img/screenshots/networks.png',
+    src: 'screenshots/networks.png',
     altId: 'homepage.screenshots.networks.alt', altDefault: 'Networks tab — server list and Kademlia status',
     captionId: 'homepage.screenshots.networks.caption', captionDefault: 'Networks — eD2k servers and Kad status',
   },
   {
-    src: '/img/screenshots/search.png',
+    src: 'screenshots/search.png',
     altId: 'homepage.screenshots.search.alt', altDefault: 'Search tab with results',
     captionId: 'homepage.screenshots.search.caption', captionDefault: 'Search — eD2k + Kad search results',
   },
   {
-    src: '/img/screenshots/downloads.png',
+    src: 'screenshots/downloads.png',
     altId: 'homepage.screenshots.downloads.alt', altDefault: 'Transfers tab with active downloads',
     captionId: 'homepage.screenshots.downloads.caption', captionDefault: 'Transfers — per-file progress with availability bars',
   },
   {
-    src: '/img/screenshots/shared.png',
+    src: 'screenshots/shared.png',
     altId: 'homepage.screenshots.shared.alt', altDefault: 'Shared files tab',
     captionId: 'homepage.screenshots.shared.caption', captionDefault: 'Shared files',
   },
 ];
 
 export default function ScreenshotsSection(): React.JSX.Element {
+  const imgBase = useBaseUrl('/img/');
   const [lightbox, setLightbox] = useState({open: false, index: 0});
 
   const open = useCallback((index: number) => setLightbox({open: true, index}), []);
@@ -91,7 +93,7 @@ export default function ScreenshotsSection(): React.JSX.Element {
             onClick={() => open(i)}
           >
             <img
-              src={s.src}
+              src={imgBase + s.src}
               alt={translate({id: s.altId, message: s.altDefault})}
               loading="lazy"
               className={styles.ssImg}
@@ -142,7 +144,7 @@ export default function ScreenshotsSection(): React.JSX.Element {
             onClick={(e) => e.stopPropagation()}
           >
             <img
-              src={current.src}
+              src={imgBase + current.src}
               alt={translate({id: current.altId, message: current.altDefault})}
               className={styles.modalImg}
             />

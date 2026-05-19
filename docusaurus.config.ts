@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'aMule',
   tagline: 'All-platform eMule-compatible eD2k/Kad client',
-  url: 'https://amule-org.github.io',
-  baseUrl: '/',
+  url: 'https://ngosang.github.io',
+  baseUrl: '/amule-org.github.io/',
   organizationName: 'amule-org',
   projectName: 'amule-org.github.io',
   trailingSlash: false,
