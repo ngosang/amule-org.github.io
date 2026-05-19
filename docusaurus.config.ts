@@ -30,7 +30,16 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
         },
-        blog: false,
+        blog: {
+          blogTitle: 'Blog',
+          blogSidebarTitle: 'Recent posts',
+          blogSidebarCount: 'ALL',
+          postsPerPage: 10,
+          feedOptions: {
+            type: 'all',
+            copyright: 'aMule developers',
+          },
+        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -64,6 +73,7 @@ const config: Config = {
       },
       items: [
         {to: '/#download', label: 'Download', position: 'left'},
+        {to: '/blog', label: 'Blog', position: 'left'},
         {
           type: 'docSidebar',
           sidebarId: 'docsSidebar',
@@ -97,6 +107,7 @@ const config: Config = {
         {
           title: 'Resources',
           items: [
+            {label: 'Blog', to: '/blog'},
             {label: 'Documentation', to: '/docs/'},
             {label: 'Source code', href: 'https://github.com/amule-org/amule'},
             {label: 'Releases', href: 'https://github.com/amule-org/amule/releases'},
@@ -113,7 +124,6 @@ const config: Config = {
         {
           title: 'Community',
           items: [
-            {label: 'Wiki', href: 'https://github.com/amule-org/amule/wiki'},
             {label: 'Discussions', href: 'https://github.com/amule-org/amule/discussions'},
             {label: 'Issues', href: 'https://github.com/amule-org/amule/issues'},
           ],

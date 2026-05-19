@@ -311,6 +311,10 @@
     "message": "Descargar",
     "description": "Navbar item label for Download"
   },
+  "theme.navbar.item.label.Blog": {
+    "message": "Blog",
+    "description": "Navbar item label for Blog"
+  },
   "theme.navbar.item.label.Documentation": {
     "message": "Documentación",
     "description": "Navbar item label for Documentation"
@@ -331,6 +335,10 @@
     "message": "Comunidad",
     "description": "Footer link title for Community"
   },
+  "theme.footer.link.item.label.Blog": {
+    "message": "Blog",
+    "description": "Footer link label for Blog"
+  },
   "theme.footer.link.item.label.Documentation": {
     "message": "Documentación",
     "description": "Footer link label for Documentation"
@@ -350,10 +358,6 @@
   "theme.footer.link.item.label.Build & install": {
     "message": "Compilar e instalar",
     "description": "Footer link label for Build & install"
-  },
-  "theme.footer.link.item.label.Wiki": {
-    "message": "Wiki",
-    "description": "Footer link label for Wiki"
   },
   "theme.footer.link.item.label.Discussions": {
     "message": "Discusiones",
