@@ -1,0 +1,56 @@
+.hero {
+  background: linear-gradient(135deg, var(--ifm-color-primary-darkest) 0%, var(--ifm-color-primary-dark) 100%);
+  color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.heroInner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.heroIcon {
+  width: 80px;
+  height: 80px;
+  border-radius: 18px;
+  margin-bottom: 1rem;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+
+.aliveBanner {
+  font-size: 1rem;
+  background: rgba(255 255 255 / 0.12);
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.badge {
+  background: var(--ifm-color-primary-lighter);
+  color: var(--ifm-color-primary-darkest);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.ctaRow {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}

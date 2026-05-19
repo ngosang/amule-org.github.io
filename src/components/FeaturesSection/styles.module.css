@@ -1,0 +1,20 @@
+.section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.ftList {
+  list-style: none;
+  padding: 0;
+}
+
+.ftList li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  font-size: 0.95rem;
+}
+
+.ftList li:last-child {
+  border-bottom: none;
+}

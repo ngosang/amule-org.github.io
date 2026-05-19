@@ -1,0 +1,58 @@
+.section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.hlGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .hlGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .hlGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hlCard {
+  padding: 1.25rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-card-border-radius, 8px);
+  background: var(--ifm-card-background-color, var(--ifm-background-surface-color));
+}
+
+.hlMajor {
+  border-color: var(--ifm-color-primary);
+  background: color-mix(in srgb, var(--ifm-color-primary) 8%, var(--ifm-background-color));
+}
+
+.hlNum {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.3rem;
+}
+
+.hlLabel {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.hlDetail {
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.hlLink {
+  text-align: right;
+  font-size: 0.9rem;
+}

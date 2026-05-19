@@ -6,6 +6,3 @@ node_modules/
 
 # Docusaurus cache
 .docusaurus/
-
-# Old MkDocs output (leftover)
-public/

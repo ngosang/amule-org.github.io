@@ -20,20 +20,27 @@ The site is built with [Docusaurus v3](https://docusaurus.io/) and supports Engl
 │           └── user-guide/
 │               └── getting-started.md     # Spanish getting started guide
 ├── src/
+│   ├── components/                        # Homepage section components
+│   │   ├── Hero/
+│   │   ├── WhatIsAMule/
+│   │   ├── DownloadSection/
+│   │   ├── HighlightsSection/
+│   │   ├── BenchmarkSection/
+│   │   ├── ScreenshotsSection/
+│   │   └── FeaturesSection/
 │   ├── css/custom.css                     # Docusaurus CSS variable overrides
 │   └── pages/
-│       ├── index.js                       # Landing page (React)
-│       └── index.module.css               # Landing page styles
+│       └── index.tsx                      # Landing page (imports components above)
 ├── static/
 │   └── img/                              # Images and icons
 │       ├── aMule-icon.png
+│       ├── social-card.png               # Open Graph social card (1200×630)
 │       ├── screenshots/                   # GUI screenshots for landing page
 │       └── docs/                          # Screenshots for documentation
-├── docusaurus.config.js                   # Site configuration
-├── sidebars.js                            # Documentation sidebar
-├── package.json
-├── .gitignore
-└── Makefile
+├── docusaurus.config.ts                   # Site configuration
+├── sidebars.ts                            # Documentation sidebar
+├── tsconfig.json
+└── package.json
 ```
 
 ## Requirements
@@ -45,15 +52,13 @@ The site is built with [Docusaurus v3](https://docusaurus.io/) and supports Engl
 Install dependencies:
 
 ```sh
-make install
-# equivalent to: npm install
+npm install
 ```
 
 Serve the full site locally at `http://localhost:3000` (English):
 
 ```sh
-make serve
-# equivalent to: npm run start
+npm run start
 ```
 
 Serve the Spanish locale at `http://localhost:3000/es/`:
@@ -65,14 +70,13 @@ npm run start -- --locale es
 Build the complete site into `build/`:
 
 ```sh
-make build
-# equivalent to: npm run build
+npm run build
 ```
 
 Remove the build output:
 
 ```sh
-make clean
+npm run clear
 ```
 
 ## Deployment
