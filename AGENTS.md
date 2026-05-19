@@ -8,11 +8,12 @@
 
 ## Main Libraries
 
-- **Node.js**: `>=18`
+- **Node.js**: `>=24`
 - **Framework**: `@docusaurus/core`, `@docusaurus/preset-classic` (`^3.10`)
 - **Language**: TypeScript (`tsx` components, `ts` config files)
 - **React**: `^18`
 - **Syntax highlighting**: `prism-react-renderer`
+- **Search**: `@easyops-cn/docusaurus-search-local` — client-side, index built at compile time. Configured in `docusaurus.config.ts` (`themes` array). Add new locales to its `language` array when adding a new i18n locale. Search only works in the production build (`npm run build` + `npm run serve`), not in the dev server (`npm run start`).
 
 ## Architecture
 
