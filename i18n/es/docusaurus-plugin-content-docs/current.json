@@ -1,0 +1,14 @@
+{
+  "sidebar.docsSidebar.category.User Guide": {
+    "message": "Guía de usuario",
+    "description": "The label for category User Guide in the sidebar"
+  },
+  "sidebar.docsSidebar.doc.Overview": {
+    "message": "Visión general",
+    "description": "The label for doc index in the sidebar"
+  },
+  "sidebar.docsSidebar.doc.Getting Started": {
+    "message": "Primeros pasos",
+    "description": "The label for doc getting-started in the sidebar"
+  }
+}

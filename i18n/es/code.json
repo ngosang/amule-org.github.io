@@ -1,0 +1,366 @@
+{
+  "homepage.tagline": {
+    "message": "Cliente eD2k/Kad compatible con eMule para todas las plataformas",
+    "description": "Hero tagline"
+  },
+  "homepage.hero.badge.version": {
+    "message": "3.0.0",
+    "description": "Version badge"
+  },
+  "homepage.hero.alive": {
+    "message": "aMule ha vuelto.",
+    "description": "Hero alive banner headline"
+  },
+  "homepage.hero.alive.detail": {
+    "message": "Primera versión principal en cinco años — y hasta <strong>~380×</strong> más rápido.",
+    "description": "Hero alive banner detail"
+  },
+  "homepage.hero.cta.download": {
+    "message": "Descargar la última versión",
+    "description": "Primary CTA button"
+  },
+  "homepage.hero.cta.github": {
+    "message": "Ver en GitHub",
+    "description": "Secondary CTA button"
+  },
+  "homepage.whatisamule.title": {
+    "message": "¿Qué es aMule?",
+    "description": "What is aMule section title"
+  },
+  "homepage.whatisamule.p1": {
+    "message": "aMule es un cliente de intercambio de archivos P2P, libre y con licencia GPL, para las redes <strong>eD2k</strong> y <strong>Kademlia</strong>. Es compatible con eMule y funciona de forma nativa en Linux, macOS y Windows. El mismo estado en disco, el mismo protocolo, un binario por escritorio principal.",
+    "description": "What is aMule paragraph 1"
+  },
+  "homepage.whatisamule.p2": {
+    "message": "Tras un largo período de inactividad, el proyecto está de nuevo bajo mantenimiento activo — centrado no solo en correcciones de errores y modernización, sino en una mejora drástica del <strong>rendimiento</strong> que importa directamente a cualquier cliente P2P.",
+    "description": "What is aMule paragraph 2"
+  },
+  "homepage.download.title": {
+    "message": "Descargar",
+    "description": "Download section title"
+  },
+  "homepage.download.lead": {
+    "message": "3.0.0 incluye binarios nativos para todos los escritorios principales. Elige tu plataforma:",
+    "description": "Download section lead"
+  },
+  "homepage.download.linux.os": {
+    "message": "Linux",
+    "description": "Linux platform name"
+  },
+  "homepage.download.linux.fmt": {
+    "message": "AppImage · Flatpak",
+    "description": "Linux download formats"
+  },
+  "homepage.download.linux.arch": {
+    "message": "x86_64 · aarch64",
+    "description": "Linux architectures"
+  },
+  "homepage.download.macos.os": {
+    "message": "macOS",
+    "description": "macOS platform name"
+  },
+  "homepage.download.macos.fmt": {
+    "message": "Universal2 .dmg",
+    "description": "macOS download format"
+  },
+  "homepage.download.macos.arch": {
+    "message": "Apple Silicon · Intel",
+    "description": "macOS architectures"
+  },
+  "homepage.download.windows.os": {
+    "message": "Windows",
+    "description": "Windows platform name"
+  },
+  "homepage.download.windows.fmt": {
+    "message": "portable .zip",
+    "description": "Windows download format"
+  },
+  "homepage.download.windows.arch": {
+    "message": "x64 · ARM64",
+    "description": "Windows architectures"
+  },
+  "homepage.download.source.os": {
+    "message": "Código fuente",
+    "description": "Source code platform name"
+  },
+  "homepage.download.source.fmt": {
+    "message": "tar.gz",
+    "description": "Source download format"
+  },
+  "homepage.download.source.arch": {
+    "message": "compílalo tú mismo",
+    "description": "Source arch description"
+  },
+  "homepage.download.foot": {
+    "message": "Todos los artefactos en la <a href=\"https://github.com/amule-org/amule/releases/latest\">página de la última versión</a>.",
+    "description": "Download section footer"
+  },
+  "homepage.highlights.title": {
+    "message": "Novedades de 3.0.0",
+    "description": "Highlights section title"
+  },
+  "homepage.highlights.hl1.label": {
+    "message": "Rendimiento de descarga P2P",
+    "description": "Highlight 1 label"
+  },
+  "homepage.highlights.hl1.detail": {
+    "message": "E/S de disco fuera del hilo principal, carreras ASIO/EPOLLET corregidas, aceleradores reemplazados por limitadores de token-bucket apropiados. <a href=\"#bench\">Ver los números →</a>",
+    "description": "Highlight 1 detail"
+  },
+  "homepage.highlights.hl2.label": {
+    "message": "vs eMule 0.70b en Windows",
+    "description": "Highlight 2 label"
+  },
+  "homepage.highlights.hl2.detail": {
+    "message": "aMule 3.0.0 mantiene ~106 MB/s en subida (vs 22 MB/s de eMule) y ~39 MB/s en bajada (vs 20 MB/s de eMule), mismo hardware UTM.",
+    "description": "Highlight 2 detail"
+  },
+  "homepage.highlights.hl3.label": {
+    "message": "Sistema de compilación moderno",
+    "description": "Highlight 3 label"
+  },
+  "homepage.highlights.hl3.detail": {
+    "message": "Autotools eliminado por completo. Una sola compilación CMake, versión mínima CMake 3.10, versión mínima wxWidgets 3.2.0.",
+    "description": "Highlight 3 detail"
+  },
+  "homepage.highlights.hl4.label": {
+    "message": "Binarios para cada escritorio",
+    "description": "Highlight 4 label"
+  },
+  "homepage.highlights.hl4.detail": {
+    "message": "AppImage, Flatpak, macOS Universal2 .dmg, Windows portable .zip — x86_64 y ARM64 donde la plataforma lo soporta.",
+    "description": "Highlight 4 detail"
+  },
+  "homepage.highlights.hl5.label": {
+    "message": "Listas de servidores y comprobación de versiones",
+    "description": "Highlight 5 label"
+  },
+  "homepage.highlights.hl5.detail": {
+    "message": "TLS artesanal reemplazado por <code>wxWebRequest</code>. Las descargas de server-met desde endpoints HTTPS modernos vuelven a funcionar.",
+    "description": "Highlight 5 detail"
+  },
+  "homepage.highlights.hl6.label": {
+    "message": "Limitación de ancho de banda que funciona",
+    "description": "Highlight 6 label"
+  },
+  "homepage.highlights.hl6.detail": {
+    "message": "Los aceleradores de subida y bajada reescritos como limitadores de token-bucket apropiados. <code>MaxUpload=0</code> significa por fin literalmente ilimitado.",
+    "description": "Highlight 6 detail"
+  },
+  "homepage.highlights.changelog": {
+    "message": "Registro de cambios completo de 3.0.0 →",
+    "description": "Highlights changelog link"
+  },
+  "homepage.bench.title": {
+    "message": "Rendimiento, medido",
+    "description": "Benchmark section title"
+  },
+  "homepage.bench.lead": {
+    "message": "3.0.0 vs 2.3.3 en el mismo hardware. Un par eD2k descargando un archivo de 30 GB desde un seeder Linux por red local, sostenido durante los últimos 30 s de una ventana de 90 s.",
+    "description": "Benchmark section lead"
+  },
+  "homepage.bench.macos.host": {
+    "message": "macOS",
+    "description": "macOS benchmark host"
+  },
+  "homepage.bench.macos.detail": {
+    "message": "Apple Silicon · Mac Studio",
+    "description": "macOS benchmark detail"
+  },
+  "homepage.bench.macos.faster": {
+    "message": "381× más rápido",
+    "description": "macOS benchmark multiplier"
+  },
+  "homepage.bench.macos.breakdown": {
+    "message": "mejora seeder: 86× · + leecher: 4,5×",
+    "description": "macOS benchmark breakdown"
+  },
+  "homepage.bench.linux.host": {
+    "message": "Linux",
+    "description": "Linux benchmark host"
+  },
+  "homepage.bench.linux.detail": {
+    "message": "Ubuntu ARM · UTM VM",
+    "description": "Linux benchmark detail"
+  },
+  "homepage.bench.linux.faster": {
+    "message": "345× más rápido",
+    "description": "Linux benchmark multiplier"
+  },
+  "homepage.bench.linux.breakdown": {
+    "message": "mejora seeder: 60× · + leecher: 5,8×",
+    "description": "Linux benchmark breakdown"
+  },
+  "homepage.bench.windows.host": {
+    "message": "Windows",
+    "description": "Windows benchmark host"
+  },
+  "homepage.bench.windows.detail": {
+    "message": "Windows 11 ARM · UTM VM",
+    "description": "Windows benchmark detail"
+  },
+  "homepage.bench.windows.faster": {
+    "message": "107× más rápido",
+    "description": "Windows benchmark multiplier"
+  },
+  "homepage.bench.windows.breakdown": {
+    "message": "mejora seeder: 19× · + leecher: 5,8×",
+    "description": "Windows benchmark breakdown"
+  },
+  "homepage.bench.vsemule.heading": {
+    "message": "vs eMule 0.70b · Windows",
+    "description": "vs eMule section heading"
+  },
+  "homepage.bench.upload.host": {
+    "message": "Subida",
+    "description": "Upload benchmark host"
+  },
+  "homepage.bench.upload.detail": {
+    "message": "Windows siembra → Mac descarga",
+    "description": "Upload benchmark detail"
+  },
+  "homepage.bench.upload.faster": {
+    "message": "~4,8× más rápido",
+    "description": "Upload benchmark multiplier"
+  },
+  "homepage.bench.download.host": {
+    "message": "Bajada",
+    "description": "Download benchmark host"
+  },
+  "homepage.bench.download.detail": {
+    "message": "Linux siembra → Windows descarga",
+    "description": "Download benchmark detail"
+  },
+  "homepage.bench.download.faster": {
+    "message": "~1,9× más rápido",
+    "description": "Download benchmark multiplier"
+  },
+  "homepage.bench.foot": {
+    "message": "Metodología: hardware y red idénticos para ambas versiones, par a par entre dos daemons (sin fuentes de red real). La versión 2.3.3 se aproxima mediante master en el último commit antes de que comenzaran las reescrituras de rendimiento; la ruta de protocolo eD2k entre ese commit y 2.3.3 no ha cambiado. Desglose por plataforma de las contribuciones del seeder y el leecher en la <a href=\"https://github.com/amule-org/amule/blob/master/docs/CHANGELOG.md#performance\">sección de Rendimiento del changelog de 3.0.0</a>.",
+    "description": "Benchmark methodology footnote"
+  },
+  "homepage.screenshots.title": {
+    "message": "Capturas de pantalla",
+    "description": "Screenshots section title"
+  },
+  "homepage.screenshots.lead": {
+    "message": "aMule 3.0.0 GUI — mismo aspecto en Linux, macOS y Windows. Haz clic en cualquier captura para ampliarla; usa <kbd>←</kbd> <kbd>→</kbd> para navegar, <kbd>Esc</kbd> para cerrar.",
+    "description": "Screenshots section lead"
+  },
+  "homepage.screenshots.networks.alt": {
+    "message": "Pestaña Redes — lista de servidores y estado de Kademlia",
+    "description": "Networks screenshot alt"
+  },
+  "homepage.screenshots.networks.caption": {
+    "message": "Redes — servidores eD2k y estado de Kad",
+    "description": "Networks screenshot caption"
+  },
+  "homepage.screenshots.search.alt": {
+    "message": "Pestaña Búsqueda con resultados",
+    "description": "Search screenshot alt"
+  },
+  "homepage.screenshots.search.caption": {
+    "message": "Búsqueda — resultados eD2k + Kad",
+    "description": "Search screenshot caption"
+  },
+  "homepage.screenshots.downloads.alt": {
+    "message": "Pestaña Transferencias con descargas activas",
+    "description": "Downloads screenshot alt"
+  },
+  "homepage.screenshots.downloads.caption": {
+    "message": "Transferencias — progreso por archivo con disponibilidad",
+    "description": "Downloads screenshot caption"
+  },
+  "homepage.screenshots.shared.alt": {
+    "message": "Pestaña Archivos compartidos",
+    "description": "Shared screenshot alt"
+  },
+  "homepage.screenshots.shared.caption": {
+    "message": "Archivos compartidos",
+    "description": "Shared screenshot caption"
+  },
+  "homepage.features.title": {
+    "message": "Características",
+    "description": "Features section title"
+  },
+  "homepage.features.f1": {
+    "message": "<strong>eD2k + Kademlia</strong> — ambas redes soportadas, compatibilidad total con el protocolo eMule.",
+    "description": "Feature 1"
+  },
+  "homepage.features.f2": {
+    "message": "<strong>Multiplataforma</strong> — el mismo motor en Linux, macOS y Windows; el mismo estado en disco.",
+    "description": "Feature 2"
+  },
+  "homepage.features.f3": {
+    "message": "<strong>Variantes sin interfaz gráfica</strong> — daemon <code>amuled</code> para NAS / VPS, con GUI remota (<code>amulegui</code>), interfaz web (<code>amuleweb</code>) y CLI (<code>amulecmd</code>).",
+    "description": "Feature 3"
+  },
+  "homepage.features.f4": {
+    "message": "<strong>Software libre</strong> — GPL-2.0; sin telemetría, sin ventas adicionales, sin publicidad integrada.",
+    "description": "Feature 4"
+  },
+  "homepage.features.f5": {
+    "message": "<strong>Empaquetado moderno</strong> — AppImage y Flatpak en Linux; paquete .app para macOS; .zip portable para Windows.",
+    "description": "Feature 5"
+  },
+  "homepage.features.f6": {
+    "message": "<strong>Listas de servidores HTTPS, banderas de país MaxMindDB</strong> — stack modernizado, sin dependencia de GeoIP obsoleto.",
+    "description": "Feature 6"
+  },
+  "theme.navbar.item.label.Download": {
+    "message": "Descargar",
+    "description": "Navbar item label for Download"
+  },
+  "theme.navbar.item.label.Documentation": {
+    "message": "Documentación",
+    "description": "Navbar item label for Documentation"
+  },
+  "theme.navbar.item.label.Releases": {
+    "message": "Versiones",
+    "description": "Navbar item label for Releases"
+  },
+  "theme.navbar.item.label.Discussions": {
+    "message": "Discusiones",
+    "description": "Navbar item label for Discussions"
+  },
+  "theme.footer.link.title.Resources": {
+    "message": "Recursos",
+    "description": "Footer link title for Resources"
+  },
+  "theme.footer.link.title.Community": {
+    "message": "Comunidad",
+    "description": "Footer link title for Community"
+  },
+  "theme.footer.link.item.label.Documentation": {
+    "message": "Documentación",
+    "description": "Footer link label for Documentation"
+  },
+  "theme.footer.link.item.label.Source code": {
+    "message": "Código fuente",
+    "description": "Footer link label for Source code"
+  },
+  "theme.footer.link.item.label.Releases": {
+    "message": "Versiones",
+    "description": "Footer link label for Releases"
+  },
+  "theme.footer.link.item.label.Changelog": {
+    "message": "Registro de cambios",
+    "description": "Footer link label for Changelog"
+  },
+  "theme.footer.link.item.label.Build & install": {
+    "message": "Compilar e instalar",
+    "description": "Footer link label for Build & install"
+  },
+  "theme.footer.link.item.label.Wiki": {
+    "message": "Wiki",
+    "description": "Footer link label for Wiki"
+  },
+  "theme.footer.link.item.label.Discussions": {
+    "message": "Discusiones",
+    "description": "Footer link label for Discussions"
+  },
+  "theme.footer.link.item.label.Issues": {
+    "message": "Issues",
+    "description": "Footer link label for Issues"
+  }
+}
