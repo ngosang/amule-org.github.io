@@ -20,7 +20,7 @@ Originalmente una bifurcación de xMule (a su vez derivado de lMule y eMule), aM
 
 ## Inicio rápido
 
-- [Primeros pasos](quickstart-guide/getting-started.md) — primera ejecución, configuración, búsqueda y descarga
+- [Primeros pasos](quickstart-guide/index.md) — primera ejecución, configuración, búsqueda y descarga
 
 ## Plataformas compatibles
 

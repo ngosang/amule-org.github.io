@@ -34,7 +34,7 @@ export default function Home(): React.JSX.Element {
             </Link>
             <Link
               className="button button--secondary button--lg"
-              to="/docs/quickstart-guide/getting-started"
+              to="/docs/quickstart-guide"
             >
               <Translate id="homepage.hero.cta.quickstart">Quick Start</Translate>
             </Link>
