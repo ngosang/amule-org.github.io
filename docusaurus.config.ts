@@ -110,7 +110,7 @@ const config: Config = {
         {items: [{label: 'Source code', href: 'https://github.com/amule-org/amule'}]},
         {items: [{label: 'Releases', href: 'https://github.com/amule-org/amule/releases'}]},
         {items: [{label: 'Changelog', href: 'https://github.com/amule-org/amule/blob/master/docs/CHANGELOG.md'}]},
-        {items: [{label: 'Build & install', href: 'https://github.com/amule-org/amule/blob/master/docs/INSTALL.md'}]},
+        {items: [{label: 'RSS Feed', href: 'pathname:///blog/atom.xml'}]},
       ],
       copyright:
         'aMule is free software released under the GNU GPL v2. The aMule developers have no control over what other peers transfer through eD2k/Kad and cannot be held liable for non-personal copyright infringement or other illegal activity by third parties. Share responsibly.',
