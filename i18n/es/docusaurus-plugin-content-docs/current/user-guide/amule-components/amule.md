@@ -1,9 +1,9 @@
 ---
 id: amule
-title: amule — Cliente gráfico
+title: amule — Cliente GUI
 ---
 
-`amule` es el cliente gráfico todo en uno. Integra el núcleo de aMule y una interfaz completa basada en wxWidgets en un único ejecutable.
+`amule` es el cliente GUI todo en uno. Integra el núcleo de aMule y una interfaz completa basada en wxWidgets en un único ejecutable.
 
 ## Vista general
 

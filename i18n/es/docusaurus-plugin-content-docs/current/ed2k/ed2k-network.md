@@ -3,7 +3,7 @@ id: ed2k-network
 title: Red ED2K
 ---
 
-La red ED2K (eDonkey2000) es una red P2P basada en servidores. Los clientes se conectan a un servidor central para buscar archivos y encontrar otros clientes que los compartan, pero las transferencias de archivos ocurren directamente entre pares.
+La red ED2K (eDonkey2000) es una red peer-to-peer (P2P) basada en servidores. Los clientes se conectan a un servidor para buscar archivos y localizar otros clientes que los comparten, pero las transferencias de archivos se realizan directamente entre peers.
 
 ## Arquitectura
 
@@ -13,9 +13,9 @@ La red ED2K (eDonkey2000) es una red P2P basada en servidores. Los clientes se c
 
 <!-- TODO: lista de servidores (server.met), conectarse a un servidor aleatorio, conectarse a un servidor específico, servidores estáticos -->
 
-## ID Alto e ID Bajo
+## ID alta e ID baja
 
-<!-- TODO: qué significan ID Alto e ID Bajo, cómo se asignan, impacto en el rendimiento, cómo obtener un ID Alto (reenvío de puertos) -->
+<!-- TODO: qué significan la ID alta y la ID baja, cómo se asignan, su impacto en el rendimiento y cómo obtener una ID alta (redirección de puertos) -->
 
 ## Listas de servidores
 

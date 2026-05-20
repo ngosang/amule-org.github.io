@@ -11,7 +11,7 @@ Preguntas frecuentes sobre aMule.
 
 ## Conexión
 
-<!-- TODO: ¿Por qué tengo ID Bajo? ¿Por qué no puedo conectarme a ningún servidor? ¿Por qué Kad no arranca? -->
+<!-- TODO: ¿Por qué tengo ID baja? ¿Por qué no puedo conectarme a ningún servidor? ¿Por qué Kad no puede inicializarse? -->
 
 ## Descargas
 
@@ -23,7 +23,7 @@ Preguntas frecuentes sobre aMule.
 
 ## Configuración
 
-<!-- TODO: ¿Dónde está el archivo de configuración? ¿Cómo restablezco mis preferencias? ¿Cómo muevo las carpetas Temp/Incoming? -->
+<!-- TODO: ¿Dónde está el archivo de configuración? ¿Cómo restablezco mis preferencias? ¿Cómo muevo los directorios Temp/Incoming? -->
 
 ## Otros
 

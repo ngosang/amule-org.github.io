@@ -1,13 +1,13 @@
 ---
 id: amuled
-title: amuled — Demonio sin interfaz
+title: amuled — Daemon sin interfaz gráfica
 ---
 
-`amuled` es la versión sin interfaz gráfica de aMule. Se ejecuta sin ninguna interfaz visual y está diseñado para servidores, dispositivos NAS o cualquier máquina donde una interfaz gráfica no esté disponible o no sea deseable.
+`amuled` es la variante sin interfaz gráfica de aMule. Se ejecuta sin ninguna GUI y está diseñado para servidores, dispositivos NAS o cualquier equipo donde una interfaz gráfica no esté disponible o no resulte deseable.
 
 ## Vista general
 
-<!-- TODO: propósito, casos de uso, diferencias con el cliente gráfico amule completo -->
+<!-- TODO: propósito, casos de uso, diferencias con el cliente GUI completo amule -->
 
 ## Iniciar amuled
 
@@ -15,7 +15,7 @@ title: amuled — Demonio sin interfaz
 
 ## Configuración
 
-<!-- TODO: opciones clave de amule.conf relevantes para la operación sin interfaz; configuración en la primera ejecución -->
+<!-- TODO: opciones clave de amule.conf relevantes para el funcionamiento sin interfaz gráfica; configuración en la primera ejecución -->
 
 ## Conexión remota
 

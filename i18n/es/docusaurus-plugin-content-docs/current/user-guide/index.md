@@ -3,7 +3,7 @@ id: index
 title: Guía de usuario
 ---
 
-Esta guía cubre todo lo necesario para usar aMule: instalación, configuración, uso diario y el ecosistema de módulos de aMule.
+Esta guía cubre todo lo necesario para usar aMule: instalación, configuración, uso diario y el ecosistema de componentes de aMule.
 
 ## Instalación
 
@@ -23,11 +23,11 @@ Búsqueda, descarga, subida y gestión de archivos compartidos.
 
 - [Uso](usage/index.md)
 
-## Módulos de aMule
+## Componentes de aMule
 
-aMule incluye varios binarios además del cliente gráfico principal. Cada módulo cumple un papel diferente.
+aMule incluye varios binarios además del cliente GUI principal. Cada componente cumple una función distinta.
 
-- [Módulos de aMule](amule-components/index.md)
+- [Componentes de aMule](amule-components/index.md)
 
 ## Archivos de aMule
 

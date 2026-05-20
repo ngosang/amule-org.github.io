@@ -3,7 +3,7 @@ id: amuleweb
 title: amuleweb — Interfaz web
 ---
 
-`amuleweb` es un servidor HTTP que proporciona una interfaz basada en navegador para controlar una instancia de `amuled` en ejecución.
+`amuleweb` es un servidor HTTP que proporciona una interfaz web accesible desde el navegador para controlar una instancia de `amuled` en ejecución.
 
 ## Vista general
 

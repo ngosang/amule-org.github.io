@@ -11,16 +11,16 @@ Conceptos clave y terminología utilizados en las redes eD2k y Kademlia.
 
 ## Intercambio de fuentes
 
-<!-- TODO: cómo los clientes intercambian listas de fuentes, protocolo de intercambio de fuentes, comportamiento en enjambre -->
+<!-- TODO: cómo los clientes intercambian listas de fuentes, protocolo de intercambio de fuentes, comportamiento del swarm -->
 
 ## Créditos y ratios
 
 <!-- TODO: el sistema de créditos de eMule, ratio de subida, cómo los créditos afectan la posición en la cola -->
 
-## Baneos y listas negras
+## Bloqueos y listas negras
 
-<!-- TODO: qué significa un baneo, detección de actores maliciosos, filtros de IP, formato ipfilter.dat -->
+<!-- TODO: qué significa un bloqueo, detección de peers maliciosos, filtros IP, formato ipfilter.dat -->
 
 ## Glosario
 
-<!-- TODO: definiciones concisas de: Baneo, Lista negra, Usuario malicioso, Segmento, AICH, ID Alto, ID Bajo, Callback con ID Bajo, A4AF, Puntuación de cola, Crédito, Ranura, etc. -->
+<!-- TODO: definiciones concisas de: Bloqueo, lista negra, peer malicioso, chunk, AICH, ID alta, ID baja, callback con ID baja, A4AF, puntuación de cola, crédito, slot, etc. -->

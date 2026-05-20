@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
-import Translate from '@docusaurus/Translate';
+import Translate, {translate} from '@docusaurus/Translate';
 import styles from './download.module.css';
 
 const LINUX_SVG =
@@ -51,8 +51,11 @@ const DOWNLOAD_PLATFORMS: DownloadPlatform[] = [
 export default function DownloadPage(): React.JSX.Element {
   return (
     <Layout
-      title="Download"
-      description="Download aMule for Linux, macOS, Windows or build from source."
+      title={translate({id: 'homepage.download.title', message: 'Download'})}
+      description={translate({
+        id: 'homepage.download.pageDescription',
+        message: 'Download aMule for Linux, macOS, Windows or build from source.',
+      })}
     >
       <main>
         <section className={styles.section} id="download">

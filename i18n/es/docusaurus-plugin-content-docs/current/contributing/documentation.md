@@ -7,15 +7,15 @@ La documentación de aMule se mantiene como archivos Markdown en el repositorio 
 
 ## Vista general
 
-<!-- TODO: estructura del repositorio, organización de la carpeta docs/, relación entre el código fuente en inglés y las traducciones i18n -->
+<!-- TODO: estructura del repositorio, organización de la carpeta docs/, relación entre la documentación fuente en inglés y las traducciones i18n -->
 
 ## Guía de estilo
 
-<!-- TODO: tono y estilo, uso de capturas de pantalla, bloques de código, admoniciones (nota/aviso/consejo), coherencia terminológica -->
+<!-- TODO: tono y estilo, uso de capturas de pantalla, bloques de código, admonitions (note/warning/tip), coherencia terminológica -->
 
 ## Añadir o editar una página
 
-<!-- TODO: paso a paso: fork → editar/crear .md → actualizar sidebars.ts si es necesario → abrir PR -->
+<!-- TODO: paso a paso: fork → editar/crear .md → actualizar sidebars.ts si es necesario → abrir un PR -->
 
 ## Traducir la documentación
 

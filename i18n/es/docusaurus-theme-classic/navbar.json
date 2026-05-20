@@ -19,12 +19,8 @@
     "message": "Documentación",
     "description": "Navbar item with label Documentation"
   },
-  "item.label.Releases": {
-    "message": "Versiones",
-    "description": "Navbar item with label Releases"
-  },
   "item.label.Discussions": {
-    "message": "Discusiones",
+    "message": "Debates",
     "description": "Navbar item with label Discussions"
   },
   "item.label.GitHub": {

@@ -3,7 +3,7 @@ id: index
 title: Uso
 ---
 
-Uso diario de aMule: búsqueda y descarga de archivos, supervisión de transferencias, gestión de contenido compartido y lectura de estadísticas.
+Uso diario de aMule: búsqueda y descarga de archivos, monitorización de transferencias, gestión de contenido compartido y consulta de estadísticas.
 
 ## Búsqueda
 
@@ -15,7 +15,7 @@ Uso diario de aMule: búsqueda y descarga de archivos, supervisión de transfere
 
 ## Subidas y compartición
 
-<!-- TODO: directorios compartidos, cola de subidas, ranuras de subida, sistema de créditos -->
+<!-- TODO: directorios compartidos, cola de subidas, slots de subida, sistema de créditos -->
 
 ## Estadísticas
 

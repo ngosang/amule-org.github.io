@@ -50,6 +50,8 @@
 - Add a new locale: register in `docusaurus.config.ts`, run `npm run write-translations -- --locale <code>`, then translate generated files.
 - Update translations after English changes: run `npm run write-translations -- --locale <code>` (adds new keys, preserves existing ones), then translate new entries in `code.json` and update changed docs files manually.
 - **Interpolation in `<Translate>`**: Docusaurus only supports `{varName}` placeholders — **not** `<tag>chunks</tag>` (FormatJS/react-intl syntax). For links inside translated strings use: `values={{ link: <Link to="..."><Translate id="...">text</Translate></Link> }}` with `{link}` in the message.
+- **Translation reference**: English is always the source of truth. All translations must faithfully reflect the English original — do not paraphrase or simplify.
+- **Precision over naturalness**: Translations must be as accurate as possible. Readers are software users familiar with technical terminology, so use technical language freely. Keep English terms (e.g. "hash", "changelog", "release", "peer") when a translated equivalent would be less precise or less commonly used in the target language.
 
 ## Important Notes
 

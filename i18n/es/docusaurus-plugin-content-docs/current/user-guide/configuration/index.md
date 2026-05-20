@@ -3,7 +3,7 @@ id: index
 title: Configuración
 ---
 
-El diálogo de Preferencias de aMule controla todos los aspectos de su comportamiento. Esta sección describe cada página de configuración en detalle.
+El cuadro de diálogo Preferencias de aMule controla todos los aspectos de su funcionamiento. Esta sección describe en detalle cada página de configuración.
 
 ## Vista general de Preferencias
 
@@ -11,7 +11,7 @@ El diálogo de Preferencias de aMule controla todos los aspectos de su comportam
 
 ## Conexión
 
-<!-- TODO: límites de ancho de banda, puertos (TCP/UDP), número máximo de conexiones -->
+<!-- TODO: límites de ancho de banda, topes de subida/descarga, puertos (TCP/UDP), número máximo de conexiones -->
 
 ## Servidores
 
@@ -19,12 +19,12 @@ El diálogo de Preferencias de aMule controla todos los aspectos de su comportam
 
 ## Descargas
 
-<!-- TODO: directorio de descarga, estrategia de segmentos, renombrado automático, prioridad -->
+<!-- TODO: directorio de descarga, estrategia de chunks, renombrado automático, prioridad -->
 
 ## Subidas
 
-<!-- TODO: límites de subida, asignación de ranuras, ranuras para amigos -->
+<!-- TODO: límites de subida, asignación de slots, friend slots -->
 
 ## Avanzado
 
-<!-- TODO: puerto EC, ofuscación, proxy, programador, registro detallado -->
+<!-- TODO: puerto EC, ofuscación, proxy, programador, registro detallado (verbose logging) -->

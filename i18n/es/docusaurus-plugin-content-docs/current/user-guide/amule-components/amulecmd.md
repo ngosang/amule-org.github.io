@@ -3,11 +3,11 @@ id: amulecmd
 title: amulecmd — Interfaz de línea de comandos
 ---
 
-`amulecmd` es un cliente de línea de comandos interactivo para controlar una instancia de `amuled` en ejecución. Es útil para scripting y para entornos donde no se dispone de interfaz gráfica.
+`amulecmd` es un cliente interactivo de línea de comandos para controlar una instancia de `amuled` en ejecución. Resulta útil para automatización mediante scripts y para entornos sin interfaz gráfica.
 
 ## Vista general
 
-<!-- TODO: propósito; casos de uso (tareas cron, scripts, servidores mínimos) -->
+<!-- TODO: propósito; casos de uso (tareas cron, scripts, servidores minimalistas) -->
 
 ## Iniciar amulecmd
 

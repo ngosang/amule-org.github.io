@@ -115,7 +115,7 @@ export default function ScreenshotsSection(): React.JSX.Element {
           <button
             className={`${styles.modalBtn} ${styles.modalClose}`}
             onClick={close}
-            aria-label="Close (Esc)"
+            aria-label={translate({id: 'homepage.screenshots.lightbox.close', message: 'Close (Esc)'})}
           >
             ×
           </button>
@@ -125,7 +125,7 @@ export default function ScreenshotsSection(): React.JSX.Element {
               e.stopPropagation();
               prev();
             }}
-            aria-label="Previous (←)"
+            aria-label={translate({id: 'homepage.screenshots.lightbox.prev', message: 'Previous (←)'})}
           >
             ❮
           </button>
@@ -135,7 +135,7 @@ export default function ScreenshotsSection(): React.JSX.Element {
               e.stopPropagation();
               next();
             }}
-            aria-label="Next (→)"
+            aria-label={translate({id: 'homepage.screenshots.lightbox.next', message: 'Next (→)'})}
           >
             ❯
           </button>

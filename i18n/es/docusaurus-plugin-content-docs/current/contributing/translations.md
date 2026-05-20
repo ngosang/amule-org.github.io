@@ -19,4 +19,4 @@ Las cadenas de la interfaz de aMule se gestionan con gettext. Las traducciones s
 
 ## Estado de las traducciones
 
-<!-- TODO: enlace a / resumen de los porcentajes de completitud de traducción por idioma -->
+<!-- TODO: enlace a / resumen de los porcentajes de traducción completada por idioma -->

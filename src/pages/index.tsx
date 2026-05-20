@@ -16,11 +16,14 @@ export default function Home(): React.JSX.Element {
   return (
     <Layout
       title={siteConfig.title}
-      description="aMule is a free, all-platform eMule-compatible eD2k/Kad client for Linux, macOS, and Windows."
+      description={translate({
+        id: 'homepage.description',
+        message: 'aMule is a free, all-platform eMule-compatible eD2k/Kad client for Linux, macOS, and Windows.',
+      })}
     >
       <header className={styles.hero}>
         <div className={styles.heroText}>
-          <img src={logoSrc} alt="aMule logo" className={styles.heroIcon} />
+          <img src={logoSrc} alt={translate({id: 'homepage.hero.logo.alt', message: 'aMule logo'})} className={styles.heroIcon} />
           <h1 className={styles.heroTitle}>aMule</h1>
           <p className={styles.tagline}>
             <Translate id="homepage.tagline">All-platform eMule-compatible eD2k/Kad client</Translate>
@@ -68,7 +71,7 @@ export default function Home(): React.JSX.Element {
         <div className={styles.screenshotWrapper}>
           <img
             src={screenshotSrc}
-            alt="aMule transfers tab"
+            alt={translate({id: 'homepage.hero.screenshot.alt', message: 'aMule transfers tab'})}
             className={styles.screenshot}
           />
         </div>

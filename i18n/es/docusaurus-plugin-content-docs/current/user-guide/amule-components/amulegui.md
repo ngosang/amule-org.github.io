@@ -1,13 +1,13 @@
 ---
 id: amulegui
-title: amulegui — Interfaz gráfica remota
+title: amulegui — GUI remota
 ---
 
-`amulegui` es un cliente gráfico independiente que se conecta a una instancia de `amuled` en ejecución a través de la red mediante el protocolo de Conexiones Externas (EC).
+`amulegui` es un cliente GUI independiente que se conecta por red a una instancia de `amuled` en ejecución mediante el protocolo External Connections (EC).
 
 ## Vista general
 
-<!-- TODO: propósito; cuándo usar amulegui en lugar de la interfaz gráfica integrada de amule -->
+<!-- TODO: propósito; cuándo usar amulegui en lugar de la GUI integrada de amule -->
 
 ## Conectarse a amuled
 
@@ -15,4 +15,4 @@ title: amulegui — Interfaz gráfica remota
 
 ## Uso
 
-<!-- TODO: paridad de funcionalidades con la interfaz de amule; limitaciones conocidas en modo remoto -->
+<!-- TODO: paridad funcional con la GUI de amule; limitaciones conocidas en modo remoto -->
