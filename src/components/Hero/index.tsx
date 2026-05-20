@@ -5,7 +5,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
 export default function Hero(): React.JSX.Element {
-  const logoSrc = useBaseUrl('/img/aMule-icon.png');
+  const logoSrc = useBaseUrl('/img/amule-logo.png');
   return (
     <header className={styles.hero}>
       <div className={styles.heroText}>

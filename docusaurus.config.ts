@@ -2,17 +2,25 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
+const url = 'https://ngosang.github.io';
+const baseUrl = '/amule-org.github.io/';
+
 const config: Config = {
   title: 'aMule',
   tagline: 'All-platform eMule-compatible eD2k/Kad client',
-  url: 'https://ngosang.github.io',
-  baseUrl: '/amule-org.github.io/',
+  url,
+  baseUrl,
   organizationName: 'amule-org',
   projectName: 'amule-org.github.io',
   trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'warn',
-  favicon: 'img/aMule-icon.png',
+  favicon: 'img/favicon.ico',
+  headTags: [
+    {tagName: 'link', attributes: {rel: 'icon', type: 'image/png', sizes: '16x16', href: `${baseUrl}img/favicon-16x16.png`}},
+    {tagName: 'link', attributes: {rel: 'icon', type: 'image/png', sizes: '32x32', href: `${baseUrl}img/favicon-32x32.png`}},
+    {tagName: 'link', attributes: {rel: 'icon', type: 'image/png', sizes: '48x48', href: `${baseUrl}img/favicon-48x48.png`}},
+  ],
 
   i18n: {
     defaultLocale: 'en',
@@ -69,7 +77,7 @@ const config: Config = {
       title: 'aMule',
       logo: {
         alt: 'aMule logo',
-        src: 'img/aMule-icon.png',
+        src: 'img/amule-logo.png',
       },
       items: [
         {
