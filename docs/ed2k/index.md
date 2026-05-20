@@ -19,5 +19,7 @@ aMule connects to two peer-to-peer networks simultaneously: the classic **eD2k**
 
 ## Further Reading
 
-- [Networks](networks/index.md) — detailed articles on each network
+- [ED2K Network](ed2k-network.md) — the classic server-based eDonkey network
+- [ED2K Clients](ed2k-clients/index.md) — compatible client applications
+- [Kademlia Network](kademlia.md) — the serverless distributed hash table network
 - [Concepts](concepts/index.md) — glossary and protocol concepts

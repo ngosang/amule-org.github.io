@@ -52,15 +52,14 @@ const sidebars: SidebarsConfig = {
       label: 'eD2k & Kademlia',
       link: {type: 'doc', id: 'ed2k/index'},
       items: [
+        'ed2k/ed2k-network',
         {
           type: 'category',
-          label: 'Networks',
-          link: {type: 'doc', id: 'ed2k/networks/index'},
-          items: [
-            'ed2k/networks/ed2k-network',
-            'ed2k/networks/kademlia',
-          ],
+          label: 'ED2K Clients',
+          link: {type: 'doc', id: 'ed2k/ed2k-clients/index'},
+          items: [],
         },
+        'ed2k/kademlia',
         {
           type: 'category',
           label: 'Concepts',
