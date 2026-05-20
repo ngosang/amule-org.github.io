@@ -30,8 +30,14 @@
   "homepage.download.title": {
     "message": "Descargar"
   },
+  "homepage.download.version": {
+    "message": "La última versión de aMule es {link}."
+  },
+  "homepage.download.version.link": {
+    "message": "3.0.0"
+  },
   "homepage.download.lead": {
-    "message": "3.0.0 incluye binarios nativos para todos los escritorios principales. Elige tu plataforma:"
+    "message": "aMule está disponible para la mayoría de plataformas de escritorio principales."
   },
   "homepage.download.linux.os": {
     "message": "Linux",
@@ -312,6 +318,10 @@
   "theme.navbar.item.label.Discussions": {
     "message": "Discusiones",
     "description": "Navbar item label for Discussions"
+  },
+  "theme.footer.link.item.label.Download": {
+    "message": "Descargar",
+    "description": "Footer link label for Download"
   },
   "theme.footer.link.title.Resources": {
     "message": "Recursos",

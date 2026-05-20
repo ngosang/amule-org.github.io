@@ -56,7 +56,6 @@
 
 - **Images in docs**: referenced as `/img/docs/<file>` (served from `static/`).
 - **Images in components**: referenced as `/img/<file>` (served from `static/`).
-- **`onBrokenAnchors: 'warn'`**: the `/#download` navbar link produces expected false-positive warnings on non-home pages — do not change to `'ignore'`.
 - **Social card**: `static/img/social-card.png` is a placeholder; replace with a proper 1200×630 image.
 
 ## Workflow

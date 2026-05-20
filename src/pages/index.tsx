@@ -3,7 +3,6 @@ import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Hero from '@site/src/components/Hero';
 import WhatIsAMule from '@site/src/components/WhatIsAMule';
-import DownloadSection from '@site/src/components/DownloadSection';
 import HighlightsSection from '@site/src/components/HighlightsSection';
 import BenchmarkSection from '@site/src/components/BenchmarkSection';
 import ScreenshotsSection from '@site/src/components/ScreenshotsSection';
@@ -19,7 +18,6 @@ export default function Home(): React.JSX.Element {
       <Hero />
       <main>
         <WhatIsAMule />
-        <DownloadSection />
         <HighlightsSection />
         <BenchmarkSection />
         <ScreenshotsSection />
