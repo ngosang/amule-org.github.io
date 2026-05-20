@@ -28,7 +28,7 @@
 - `src/css/custom.css` — global CSS variable overrides (color palette)
 - `docs/` — English documentation (Markdown)
 - `i18n/es/` — Spanish translations (`code.json` for UI strings, mirrored `docs/` for content)
-- `static/img/` — images (`aMule-icon.png`, `social-card.png`, `screenshots/`, `docs/`)
+- `static/img/` — images (`amule-logo.png`, `social-card.png`, `screenshots/`, `docs/`)
 
 ## Homepage Components
 
@@ -36,11 +36,10 @@
 |---|---|
 | `Hero` | Header with logo, version badge, CTA buttons |
 | `WhatIsAMule` | Project description |
-| `DownloadSection` | Platform download cards (Linux, macOS, Windows, Source) |
+| `HeroScreenshot` | Full-width screenshot of the transfers tab |
 | `HighlightsSection` | 3.0.0 release highlights grid |
-| `BenchmarkSection` | Throughput benchmark cards (vs 2.3.3 and vs eMule) |
-| `ScreenshotsSection` | Screenshot grid with lightbox |
 | `FeaturesSection` | Bulleted feature list |
+| `ScreenshotsSection` | Screenshot grid with lightbox |
 
 ## i18n
 
