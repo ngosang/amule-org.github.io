@@ -1,0 +1,101 @@
+/* Dark background that unifies all homepage sections */
+.homepageMain {
+  background: #0d1117;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(180deg, #111936 0%, #0d1117 100%);
+  color: #fff;
+  padding: 2.5rem 2rem 0.75rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.heroText {
+  max-width: 760px;
+  margin: 0 auto;
+  padding-bottom: 1.5rem;
+}
+
+.heroIcon {
+  width: 136px;
+  height: 136px;
+  border-radius: 22px;
+  margin-bottom: 1.25rem;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  color: #94a3b8;
+  margin-bottom: 2rem;
+}
+
+.ctaRow {
+  display: flex;
+  gap: 0.875rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.buttonDownload {
+  background: #0e1938;
+  border: 1px solid rgba(255 255 255 / 0.18);
+  color: #e6edf3;
+}
+
+.buttonDownload:hover {
+  background: #162245;
+  border-color: rgba(255 255 255 / 0.28);
+  color: #fff;
+}
+
+/* WhatIsAMule */
+.whatIsSection {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 3rem;
+  color: #94a3b8;
+  text-align: center;
+}
+
+.whatIsSection h2 {
+  color: #e6edf3;
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.whatIsSection p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.whatIsSection p:last-child {
+  margin-bottom: 0;
+}
+
+/* HeroScreenshot */
+.screenshotWrapper {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 2rem 3rem;
+}
+
+.screenshot {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  box-shadow:
+    0 8px 40px rgba(0 0 0 / 0.18),
+    0 0 0 1px rgba(0 0 0 / 0.08);
+}

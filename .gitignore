@@ -1,0 +1,11 @@
+# Docusaurus build output
+build/
+
+# Node.js
+node_modules/
+
+# Docusaurus cache
+.docusaurus/
+
+# Workspace
+.hidden/

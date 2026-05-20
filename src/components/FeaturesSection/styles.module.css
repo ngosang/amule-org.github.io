@@ -1,0 +1,106 @@
+.wrapper {
+  background: #0e1938;
+  padding: 5rem 2rem;
+}
+
+.inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  color: #e6edf3;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  letter-spacing: -0.02em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border: 1px solid rgba(255 255 255 / 0.07);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.75rem 2rem;
+  border-right: 1px solid rgba(255 255 255 / 0.07);
+  border-bottom: 1px solid rgba(255 255 255 / 0.07);
+  transition: background 0.15s ease;
+}
+
+/* Remove right border on every second column */
+.item:nth-child(2n) {
+  border-right: none;
+}
+
+/* Remove bottom border on last two items */
+.item:nth-last-child(-n+2) {
+  border-bottom: none;
+}
+
+/* When single column, remove right border and bottom border on last */
+@media (max-width: 640px) {
+  .item {
+    border-right: none;
+  }
+  .item:last-child {
+    border-bottom: none;
+  }
+  /* Reset multi-col last-row rule */
+  .item:nth-last-child(-n+2) {
+    border-bottom: 1px solid rgba(255 255 255 / 0.07);
+  }
+  .item:nth-last-child(1) {
+    border-bottom: none;
+  }
+}
+
+.item:hover {
+  background: rgba(255 255 255 / 0.03);
+}
+
+.iconWrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255 255 255 / 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.itemBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.itemTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e6edf3;
+  margin: 0 0 0.35rem;
+}
+
+.itemDesc {
+  font-size: 0.85rem;
+  color: #8b949e;
+  line-height: 1.65;
+  margin: 0;
+}

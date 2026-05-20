@@ -1,0 +1,72 @@
+/**
+ * Docusaurus theme overrides for aMule.
+ */
+
+:root {
+  --ifm-color-primary: #3d7ebe;
+  --ifm-color-primary-dark: #2f6fac;
+  --ifm-color-primary-darker: #2b68a3;
+  --ifm-color-primary-darkest: #235787;
+  --ifm-color-primary-light: #4b8dce;
+  --ifm-color-primary-lighter: #5595d2;
+  --ifm-color-primary-lightest: #74aade;
+  --ifm-code-font-size: 95%;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #5da8e8;
+  --ifm-color-primary-dark: #3e97e3;
+  --ifm-color-primary-darker: #2e8fdf;
+  --ifm-color-primary-darkest: #1875c2;
+  --ifm-color-primary-light: #7cb9ed;
+  --ifm-color-primary-lighter: #8cc1ef;
+  --ifm-color-primary-lightest: #b7d9f6;
+}
+
+/* Footer: single centered row with · separators */
+.footer__links.row {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 0.5rem;
+}
+
+.footer__links .col.footer__col {
+  flex: 0 0 auto !important;
+  width: auto !important;
+  min-width: unset;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.footer__links .footer__col .footer__title {
+  display: none;
+}
+
+.footer__links .footer__col:not(:last-child)::after {
+  content: '·';
+  margin: 0 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer__links .footer__items {
+  margin: 0;
+  padding: 0;
+}
+
+.footer__links .footer__item {
+  display: flex;
+  align-items: center;
+}
+
+/* Copyright / legal disclaimer — muted */
+.footer__copyright {
+  font-size: 1rem;
+  opacity: 0.5;
+  margin: 0 auto;
+  line-height: 1.6;
+  max-width: 880px;
+}

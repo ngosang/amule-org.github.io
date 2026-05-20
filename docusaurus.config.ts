@@ -1,0 +1,125 @@
+import {themes as prismThemes} from 'prism-react-renderer';
+import type {Config} from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
+
+const url = process.env.DOCUSAURUS_URL ?? 'https://amule-org.github.io';
+const baseUrl = process.env.DOCUSAURUS_BASE_URL ?? '/';
+
+const config: Config = {
+  title: 'aMule',
+  tagline: 'All-platform eMule-compatible eD2k/Kad client',
+  url,
+  baseUrl,
+  organizationName: 'aMule Org',
+  projectName: 'aMule',
+  trailingSlash: false,
+  onBrokenLinks: 'throw',
+  onBrokenAnchors: 'warn',
+  favicon: 'img/favicon.ico',
+  headTags: [
+    {tagName: 'link', attributes: {rel: 'icon', type: 'image/png', sizes: '16x16', href: `${baseUrl}img/favicon-16x16.png`}},
+    {tagName: 'link', attributes: {rel: 'icon', type: 'image/png', sizes: '32x32', href: `${baseUrl}img/favicon-32x32.png`}},
+    {tagName: 'link', attributes: {rel: 'icon', type: 'image/png', sizes: '48x48', href: `${baseUrl}img/favicon-48x48.png`}},
+  ],
+
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'es'],
+    localeConfigs: {
+      en: {label: 'English'},
+      es: {label: 'Español'},
+    },
+  },
+
+  presets: [
+    [
+      'classic',
+      {
+        docs: {
+          sidebarPath: './sidebars.ts',
+        },
+        blog: {
+          blogTitle: 'Blog',
+          blogSidebarTitle: 'Recent posts',
+          blogSidebarCount: 'ALL',
+          postsPerPage: 10,
+          feedOptions: {
+            type: 'all',
+            copyright: 'aMule developers',
+          },
+        },
+        theme: {
+          customCss: './src/css/custom.css',
+        },
+      } satisfies Preset.Options,
+    ],
+  ],
+
+  themes: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        hashed: true,
+        language: ['en', 'es'],
+        indexDocs: true,
+        indexPages: false,
+        docsRouteBasePath: '/docs',
+      },
+    ],
+  ],
+
+  themeConfig: {
+    image: 'img/social-card.png',
+    colorMode: {
+      respectPrefersColorScheme: true,
+    },
+    navbar: {
+      title: 'aMule',
+      logo: {
+        alt: 'aMule logo',
+        src: 'img/amule-logo.png',
+      },
+      items: [
+        {
+          type: 'docSidebar',
+          sidebarId: 'docsSidebar',
+          label: 'Documentation',
+          position: 'left',
+        },
+        {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/download', label: 'Download', position: 'left'},
+        {
+          href: 'https://github.com/amule-org/amule',
+          label: 'GitHub',
+          position: 'left',
+        },
+        {
+          href: 'https://github.com/amule-org/amule/discussions',
+          label: 'Discussions',
+          position: 'left',
+        },
+        {
+          type: 'localeDropdown',
+          position: 'right',
+        },
+      ],
+    },
+    footer: {
+      style: 'dark',
+      links: [
+        {items: [{label: 'Source code', href: 'https://github.com/amule-org/amule'}]},
+        {items: [{label: 'Releases', href: 'https://github.com/amule-org/amule/releases'}]},
+        {items: [{label: 'Changelog', href: 'https://github.com/amule-org/amule/blob/master/docs/CHANGELOG.md'}]},
+        {items: [{label: 'RSS Feed', href: 'pathname:///blog/atom.xml'}]},
+      ],
+      copyright:
+        'aMule is free software released under the GNU GPL v2. The aMule developers have no control over what other peers transfer through eD2k/Kad and cannot be held liable for non-personal copyright infringement or other illegal activity by third parties. Share responsibly.',
+    },
+    prism: {
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
+    },
+  } satisfies Preset.ThemeConfig,
+};
+
+export default config;

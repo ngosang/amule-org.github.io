@@ -1,0 +1,46 @@
+{
+  "sidebar.docsSidebar.category.User Guide": {
+    "message": "Guía de usuario",
+    "description": "The label for category 'User Guide' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.aMule Modules": {
+    "message": "Componentes de aMule",
+    "description": "The label for category 'aMule Modules' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.eD2k & Kademlia": {
+    "message": "eD2k y Kademlia",
+    "description": "The label for category 'eD2k & Kademlia' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Development": {
+    "message": "Desarrollo",
+    "description": "The label for category 'Development' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Contributing": {
+    "message": "Contribuir",
+    "description": "The label for category 'Contributing' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.doc.Overview": {
+    "message": "Visión general",
+    "description": "The label for the doc item 'Overview' in sidebar 'docsSidebar', linking to the doc index"
+  },
+  "sidebar.docsSidebar.doc.Quick Start": {
+    "message": "Primeros pasos",
+    "description": "The label for the doc item 'Quick Start' in sidebar 'docsSidebar', linking to the doc quickstart-guide/index"
+  },
+  "sidebar.docsSidebar.doc.Troubleshooting": {
+    "message": "Solución de problemas",
+    "description": "The label for the doc item 'Troubleshooting' in sidebar 'docsSidebar', linking to the doc troubleshooting/index"
+  },
+  "sidebar.docsSidebar.doc.FAQ": {
+    "message": "FAQ",
+    "description": "The label for the doc item 'FAQ' in sidebar 'docsSidebar', linking to the doc faq/index"
+  },
+  "sidebar.docsSidebar.doc.Changelogs": {
+    "message": "Historial de cambios",
+    "description": "The label for the doc item 'Changelogs' in sidebar 'docsSidebar', linking to the doc changelogs/index"
+  },
+  "version.label": {
+    "message": "Actual",
+    "description": "The label for version current"
+  }
+}
