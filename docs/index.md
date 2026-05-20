@@ -20,7 +20,7 @@ Originally a fork of xMule (itself a fork of lMule and eMule), aMule has been ac
 
 ## Quick Start
 
-- [Getting Started](user-guide/getting-started.md) — first run, configuration, searching and downloading
+- [Getting Started](quickstart-guide/getting-started.md) — first run, configuration, searching and downloading
 
 ## Supported Platforms
 

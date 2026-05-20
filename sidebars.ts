@@ -3,11 +3,97 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   docsSidebar: [
     {type: 'doc', id: 'index', label: 'Overview'},
+    {type: 'doc', id: 'quickstart-guide/getting-started', label: 'Quick Start'},
     {
       type: 'category',
       label: 'User Guide',
-      items: ['user-guide/getting-started'],
+      link: {type: 'doc', id: 'user-guide/index'},
+      items: [
+        {
+          type: 'category',
+          label: 'Installation',
+          link: {type: 'doc', id: 'user-guide/installation/index'},
+          items: [],
+        },
+        {
+          type: 'category',
+          label: 'Configuration',
+          link: {type: 'doc', id: 'user-guide/configuration/index'},
+          items: [],
+        },
+        {
+          type: 'category',
+          label: 'Usage',
+          link: {type: 'doc', id: 'user-guide/usage/index'},
+          items: [],
+        },
+        {
+          type: 'category',
+          label: 'aMule Modules',
+          link: {type: 'doc', id: 'user-guide/amule-components/index'},
+          items: [
+            'user-guide/amule-components/amule',
+            'user-guide/amule-components/amuled',
+            'user-guide/amule-components/amulegui',
+            'user-guide/amule-components/amuleweb',
+            'user-guide/amule-components/amulecmd',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'aMule Files',
+          link: {type: 'doc', id: 'user-guide/amule-files/index'},
+          items: [],
+        },
+      ],
     },
+    {
+      type: 'category',
+      label: 'eD2k & Kademlia',
+      link: {type: 'doc', id: 'ed2k/index'},
+      items: [
+        {
+          type: 'category',
+          label: 'Networks',
+          link: {type: 'doc', id: 'ed2k/networks/index'},
+          items: [
+            'ed2k/networks/ed2k-network',
+            'ed2k/networks/kademlia',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Concepts',
+          link: {type: 'doc', id: 'ed2k/concepts/index'},
+          items: [],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Development',
+      link: {type: 'doc', id: 'development/index'},
+      items: [
+        {
+          type: 'category',
+          label: 'Contributing',
+          link: {type: 'doc', id: 'development/contributing/index'},
+          items: [
+            'development/contributing/translations',
+            'development/contributing/documentation',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Compilation',
+          link: {type: 'doc', id: 'development/compilation/index'},
+          items: [],
+        },
+      ],
+    },
+    {type: 'doc', id: 'troubleshooting/index', label: 'Troubleshooting'},
+    {type: 'doc', id: 'faq/index', label: 'FAQ'},
+    {type: 'doc', id: 'changelogs/index', label: 'Changelogs'},
   ],
 };
 
