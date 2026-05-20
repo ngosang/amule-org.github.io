@@ -2,21 +2,14 @@
   "homepage.tagline": {
     "message": "Cliente eD2k/Kad compatible con eMule para todas las plataformas"
   },
-  "homepage.hero.badge.version": {
-    "message": "3.0.0",
-    "description": "Version badge"
-  },
-  "homepage.hero.alive": {
-    "message": "aMule ha vuelto."
-  },
-  "homepage.hero.alive.detail": {
-    "message": "Primera versión principal en cinco años — y hasta <strong>~380×</strong> más rápido."
-  },
   "homepage.hero.cta.download": {
-    "message": "Descargar la última versión"
+    "message": "Descargar"
+  },
+  "homepage.hero.cta.docs": {
+    "message": "Documentación"
   },
   "homepage.hero.cta.github": {
-    "message": "Ver en GitHub"
+    "message": "GitHub"
   },
   "homepage.whatisamule.title": {
     "message": "¿Qué es aMule?"
@@ -25,92 +18,10 @@
     "message": "aMule es un cliente de intercambio de archivos P2P, libre y con licencia GPL, para las redes <strong>eD2k</strong> y <strong>Kademlia</strong>. Es compatible con eMule y funciona de forma nativa en Linux, macOS y Windows. El mismo estado en disco, el mismo protocolo, un binario por escritorio principal."
   },
   "homepage.whatisamule.p2": {
-    "message": "Tras un largo período de inactividad, el proyecto está de nuevo bajo mantenimiento activo — centrado no solo en correcciones de errores y modernización, sino en una mejora drástica del <strong>rendimiento</strong> que importa directamente a cualquier cliente P2P."
-  },
-  "homepage.download.title": {
-    "message": "Descargar"
-  },
-  "homepage.download.version": {
-    "message": "La última versión de aMule es {link}."
-  },
-  "homepage.download.version.link": {
-    "message": "3.0.0"
-  },
-  "homepage.download.lead": {
-    "message": "aMule está disponible para la mayoría de plataformas de escritorio principales."
-  },
-  "homepage.download.linux.os": {
-    "message": "Linux",
-    "description": "Linux platform name"
-  },
-  "homepage.download.linux.fmt": {
-    "message": "AppImage · Flatpak",
-    "description": "Linux download formats"
-  },
-  "homepage.download.linux.arch": {
-    "message": "x86_64 · aarch64",
-    "description": "Linux architectures"
-  },
-  "homepage.download.macos.os": {
-    "message": "macOS",
-    "description": "macOS platform name"
-  },
-  "homepage.download.macos.fmt": {
-    "message": "Universal2 .dmg",
-    "description": "macOS download format"
-  },
-  "homepage.download.macos.arch": {
-    "message": "Apple Silicon · Intel",
-    "description": "macOS architectures"
-  },
-  "homepage.download.windows.os": {
-    "message": "Windows",
-    "description": "Windows platform name"
-  },
-  "homepage.download.windows.fmt": {
-    "message": "portable .zip",
-    "description": "Windows download format"
-  },
-  "homepage.download.windows.arch": {
-    "message": "x64 · ARM64",
-    "description": "Windows architectures"
-  },
-  "homepage.download.source.os": {
-    "message": "Código fuente",
-    "description": "Source code platform name"
-  },
-  "homepage.download.source.fmt": {
-    "message": "tar.gz",
-    "description": "Source download format"
-  },
-  "homepage.download.source.arch": {
-    "message": "compílalo tú mismo",
-    "description": "Source arch description"
-  },
-  "homepage.download.foot": {
-    "message": "Todos los artefactos en la {link}."
-  },
-  "homepage.download.foot.link": {
-    "message": "página de la última versión"
+    "message": "Tras años de quietud, el proyecto está de nuevo bajo mantenimiento activo. La versión 3.0.0 trae un sistema de compilación modernizado, paquetes nativos nuevos para cada escritorio principal y una base de código actualizada lista para los sistemas actuales — sin romper la compatibilidad de protocolo que permite a aMule funcionar junto a cualquier cliente basado en eMule."
   },
   "homepage.highlights.title": {
-    "message": "Novedades de 3.0.0"
-  },
-  "homepage.highlights.hl1.label": {
-    "message": "Rendimiento de descarga P2P",
-    "description": "Highlight 1 label"
-  },
-  "homepage.highlights.hl1.detail": {
-    "message": "E/S de disco fuera del hilo principal, carreras ASIO/EPOLLET corregidas, aceleradores reemplazados por limitadores de token-bucket apropiados. <a href=\"#bench\">Ver los números →</a>",
-    "description": "Highlight 1 detail"
-  },
-  "homepage.highlights.hl2.label": {
-    "message": "vs eMule 0.70b en Windows",
-    "description": "Highlight 2 label"
-  },
-  "homepage.highlights.hl2.detail": {
-    "message": "aMule 3.0.0 mantiene ~106 MB/s en subida (vs 22 MB/s de eMule) y ~39 MB/s en bajada (vs 20 MB/s de eMule), mismo hardware UTM.",
-    "description": "Highlight 2 detail"
+    "message": "Novedades en 3.0.0"
   },
   "homepage.highlights.hl3.label": {
     "message": "Sistema de compilación moderno",
@@ -145,94 +56,7 @@
     "description": "Highlight 6 detail"
   },
   "homepage.highlights.changelog": {
-    "message": "Registro de cambios completo de 3.0.0 →"
-  },
-  "homepage.bench.title": {
-    "message": "Rendimiento, medido"
-  },
-  "homepage.bench.lead": {
-    "message": "3.0.0 vs 2.3.3 en el mismo hardware. Un par eD2k descargando un archivo de 30 GB desde un seeder Linux por red local, sostenido durante los últimos 30 s de una ventana de 90 s."
-  },
-  "homepage.bench.macos.host": {
-    "message": "macOS",
-    "description": "macOS benchmark host"
-  },
-  "homepage.bench.macos.detail": {
-    "message": "Apple Silicon · Mac Studio",
-    "description": "macOS benchmark detail"
-  },
-  "homepage.bench.macos.faster": {
-    "message": "381× más rápido",
-    "description": "macOS benchmark multiplier"
-  },
-  "homepage.bench.macos.breakdown": {
-    "message": "mejora seeder: 86× · + leecher: 4,5×",
-    "description": "macOS benchmark breakdown"
-  },
-  "homepage.bench.linux.host": {
-    "message": "Linux",
-    "description": "Linux benchmark host"
-  },
-  "homepage.bench.linux.detail": {
-    "message": "Ubuntu ARM · UTM VM",
-    "description": "Linux benchmark detail"
-  },
-  "homepage.bench.linux.faster": {
-    "message": "345× más rápido",
-    "description": "Linux benchmark multiplier"
-  },
-  "homepage.bench.linux.breakdown": {
-    "message": "mejora seeder: 60× · + leecher: 5,8×",
-    "description": "Linux benchmark breakdown"
-  },
-  "homepage.bench.windows.host": {
-    "message": "Windows",
-    "description": "Windows benchmark host"
-  },
-  "homepage.bench.windows.detail": {
-    "message": "Windows 11 ARM · UTM VM",
-    "description": "Windows benchmark detail"
-  },
-  "homepage.bench.windows.faster": {
-    "message": "107× más rápido",
-    "description": "Windows benchmark multiplier"
-  },
-  "homepage.bench.windows.breakdown": {
-    "message": "mejora seeder: 19× · + leecher: 5,8×",
-    "description": "Windows benchmark breakdown"
-  },
-  "homepage.bench.vsemule.heading": {
-    "message": "vs eMule 0.70b · Windows"
-  },
-  "homepage.bench.upload.host": {
-    "message": "Subida",
-    "description": "Upload benchmark host"
-  },
-  "homepage.bench.upload.detail": {
-    "message": "Windows siembra → Mac descarga",
-    "description": "Upload benchmark detail"
-  },
-  "homepage.bench.upload.faster": {
-    "message": "~4,8× más rápido",
-    "description": "Upload benchmark multiplier"
-  },
-  "homepage.bench.download.host": {
-    "message": "Bajada",
-    "description": "Download benchmark host"
-  },
-  "homepage.bench.download.detail": {
-    "message": "Linux siembra → Windows descarga",
-    "description": "Download benchmark detail"
-  },
-  "homepage.bench.download.faster": {
-    "message": "~1,9× más rápido",
-    "description": "Download benchmark multiplier"
-  },
-  "homepage.bench.foot": {
-    "message": "Metodología: hardware y red idénticos para ambas versiones, par a par entre dos daemons (sin fuentes de red real). La versión 2.3.3 se aproxima mediante master en el último commit antes de que comenzaran las reescrituras de rendimiento; la ruta de protocolo eD2k entre ese commit y 2.3.3 no ha cambiado. Desglose por plataforma de las contribuciones del seeder y el leecher en la {link}."
-  },
-  "homepage.bench.foot.link": {
-    "message": "sección de Rendimiento del changelog de 3.0.0"
+    "message": "Registro de cambios completo →"
   },
   "homepage.screenshots.title": {
     "message": "Capturas de pantalla"
@@ -275,29 +99,165 @@
   "homepage.features.title": {
     "message": "Características"
   },
-  "homepage.features.f1": {
-    "message": "<strong>eD2k + Kademlia</strong> — ambas redes soportadas, compatibilidad total con el protocolo eMule.",
-    "description": "Feature 1"
+  "homepage.features.card1.title": {
+    "message": "eD2k + Kademlia",
+    "description": "Feature card 1 title"
   },
-  "homepage.features.f2": {
-    "message": "<strong>Multiplataforma</strong> — el mismo motor en Linux, macOS y Windows; el mismo estado en disco.",
-    "description": "Feature 2"
+  "homepage.features.card1.desc": {
+    "message": "Conéctate simultáneamente a la red eD2k con servidores y a la DHT Kademlia sin servidor, maximizando tu alcance y disponibilidad de archivos.",
+    "description": "Feature card 1 description"
   },
-  "homepage.features.f3": {
-    "message": "<strong>Variantes sin interfaz gráfica</strong> — daemon <code>amuled</code> para NAS / VPS, con GUI remota (<code>amulegui</code>), interfaz web (<code>amuleweb</code>) y CLI (<code>amulecmd</code>).",
-    "description": "Feature 3"
+  "homepage.features.card2.title": {
+    "message": "Compatible con eMule",
+    "description": "Feature card 2 title"
   },
-  "homepage.features.f4": {
-    "message": "<strong>Software libre</strong> — GPL-2.0; sin telemetría, sin ventas adicionales, sin publicidad integrada.",
-    "description": "Feature 4"
+  "homepage.features.card2.desc": {
+    "message": "Totalmente compatible a nivel de protocolo con eMule y todos los clientes *Mule. Comparte archivos con las mismas fuentes, conéctate a los mismos servidores y abre enlaces ed2k:// estándar.",
+    "description": "Feature card 2 description"
   },
-  "homepage.features.f5": {
-    "message": "<strong>Empaquetado moderno</strong> — AppImage y Flatpak en Linux; paquete .app para macOS; .zip portable para Windows.",
-    "description": "Feature 5"
+  "homepage.features.card3.title": {
+    "message": "Búsqueda potente",
+    "description": "Feature card 3 title"
   },
-  "homepage.features.f6": {
-    "message": "<strong>Listas de servidores HTTPS, banderas de país MaxMindDB</strong> — stack modernizado, sin dependencia de GeoIP obsoleto.",
-    "description": "Feature 6"
+  "homepage.features.card3.desc": {
+    "message": "Busca en servidores eD2k (local y global) y nodos Kademlia. Filtra por tipo, tamaño y disponibilidad. Operadores booleanos (AND, OR, NOT) disponibles.",
+    "description": "Feature card 3 description"
+  },
+  "homepage.features.card4.title": {
+    "message": "Intercambio de fuentes",
+    "description": "Feature card 4 title"
+  },
+  "homepage.features.card4.desc": {
+    "message": "Intercambia automáticamente listas de fuentes con los pares conectados para descubrir más fuentes para tus descargas sin consultar el servidor repetidamente.",
+    "description": "Feature card 4 description"
+  },
+  "homepage.features.card5.title": {
+    "message": "Sistema de créditos",
+    "description": "Feature card 5 title"
+  },
+  "homepage.features.card5.desc": {
+    "message": "Un sistema de créditos y puntuación recompensa a los usuarios que comparten activamente. Cuanto más subes, mayor es tu puntuación — lo que se traduce en descargas más rápidas.",
+    "description": "Feature card 5 description"
+  },
+  "homepage.features.card6.title": {
+    "message": "Filtrado de IPs",
+    "description": "Feature card 6 title"
+  },
+  "homepage.features.card6.desc": {
+    "message": "Bloquea direcciones IP no deseadas usando listas de filtros estándar. Mantén alejados a los pares agresivos, maliciosos o espías de tu cliente.",
+    "description": "Feature card 6 description"
+  },
+  "homepage.features.card7.title": {
+    "message": "Vista previa antes de completar",
+    "description": "Feature card 7 title"
+  },
+  "homepage.features.card7.desc": {
+    "message": "Reproduce vídeos y audio antes de que termine la descarga. Compatible con MPlayer, VLC y otros reproductores multimedia.",
+    "description": "Feature card 7 description"
+  },
+  "homepage.features.card8.title": {
+    "message": "Categorías de descarga",
+    "description": "Feature card 8 title"
+  },
+  "homepage.features.card8.desc": {
+    "message": "Organiza las descargas en categorías con rutas de guardado y prioridades personalizadas. Aplica reglas por categoría para mantener tu biblioteca ordenada automáticamente.",
+    "description": "Feature card 8 description"
+  },
+  "homepage.features.card9.title": {
+    "message": "aMule Daemon",
+    "description": "Feature card 9 title"
+  },
+  "homepage.features.card9.desc": {
+    "message": "Ejecuta aMule como proceso sin interfaz gráfica (amuled) en servidores, dispositivos NAS o VPS — sin necesidad de pantalla.",
+    "description": "Feature card 9 description"
+  },
+  "homepage.features.card10.title": {
+    "message": "Interfaces remotas",
+    "description": "Feature card 10 title"
+  },
+  "homepage.features.card10.desc": {
+    "message": "Controla aMule desde cualquier lugar: una GUI remota nativa (amulegui), una interfaz web en el navegador (amuleweb) o una herramienta de línea de comandos (amulecmd).",
+    "description": "Feature card 10 description"
+  },
+  "homepage.features.card11.title": {
+    "message": "Identificación segura",
+    "description": "Feature card 11 title"
+  },
+  "homepage.features.card11.desc": {
+    "message": "La identificación segura criptográfica de usuario evita que tu hash de cliente sea robado o suplantado por otros pares en la red.",
+    "description": "Feature card 11 description"
+  },
+  "homepage.features.card12.title": {
+    "message": "Soporte de proxy",
+    "description": "Feature card 12 title"
+  },
+  "homepage.features.card12.desc": {
+    "message": "Enruta las conexiones a través de proxies SOCKS4, SOCKS5 o HTTP para mayor privacidad o para trabajar con restricciones de red.",
+    "description": "Feature card 12 description"
+  },
+  "homepage.features.card13.title": {
+    "message": "Mensajería y amigos",
+    "description": "Feature card 13 title"
+  },
+  "homepage.features.card13.desc": {
+    "message": "Intercambia mensajes directamente con otros usuarios de aMule y mantén una lista de amigos para estar conectado con tus compañeros habituales.",
+    "description": "Feature card 13 description"
+  },
+  "homepage.features.card14.title": {
+    "message": "Libre y de código abierto",
+    "description": "Feature card 14 title"
+  },
+  "homepage.features.card14.desc": {
+    "message": "Licencia GPL-2.0 sin telemetría, sin publicidad y sin dependencias de proveedores. Tus datos son tuyos — inspecciona el código y contribuye.",
+    "description": "Feature card 14 description"
+  },
+  "homepage.features.card15.title": {
+    "message": "Paquetes nativos",
+    "description": "Feature card 15 title"
+  },
+  "homepage.features.card15.desc": {
+    "message": "AppImage y Flatpak en Linux, Universal2 .dmg para macOS, .zip portable para Windows. Disponible para x86_64 y ARM64.",
+    "description": "Feature card 15 description"
+  },
+  "homepage.features.card16.title": {
+    "message": "Corrección de corrupción",
+    "description": "Feature card 16 title"
+  },
+  "homepage.features.card16.desc": {
+    "message": "El Intelligent Corruption Handler (ICH) y AICH detectan y reparan automáticamente los fragmentos de descarga corruptos, garantizando archivos completos e íntegros sin necesidad de reiniciar.",
+    "description": "Feature card 16 description"
+  },
+  "homepage.features.card17.title": {
+    "message": "28 idiomas de interfaz",
+    "description": "Feature card 17 title"
+  },
+  "homepage.features.card17.desc": {
+    "message": "La interfaz completa de aMule está traducida a 28 idiomas. Descarga y comparte archivos en tu idioma nativo — la interfaz se adapta automáticamente a tu configuración regional.",
+    "description": "Feature card 17 description"
+  },
+  "homepage.features.card18.title": {
+    "message": "Transferencias comprimidas",
+    "description": "Feature card 18 title"
+  },
+  "homepage.features.card18.desc": {
+    "message": "Los datos de archivos y la comunicación con servidores se comprimen con zlib, reduciendo el uso de ancho de banda para archivos comprimibles y aligerando la carga en los servidores eD2k.",
+    "description": "Feature card 18 description"
+  },
+  "homepage.features.card19.title": {
+    "message": "Integración de enlaces ed2k://",
+    "description": "Feature card 19 title"
+  },
+  "homepage.features.card19.desc": {
+    "message": "Haz clic en enlaces ed2k:// en tu navegador para iniciar descargas al instante en aMule. El manejador de enlaces se integra con tu escritorio para una experiencia sin interrupciones.",
+    "description": "Feature card 19 description"
+  },
+  "homepage.features.card20.title": {
+    "message": "Asignación de slots",
+    "description": "Feature card 20 title"
+  },
+  "homepage.features.card20.desc": {
+    "message": "Controla exactamente a cuántos clientes subes simultáneamente y establece objetivos de ancho de banda por slot, dándote un control detallado sobre tu capacidad de subida.",
+    "description": "Feature card 20 description"
   },
   "theme.navbar.item.label.Download": {
     "message": "Descargar",

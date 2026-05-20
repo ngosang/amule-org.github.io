@@ -1,6 +1,5 @@
 /**
- * Minimal Docusaurus theme overrides for aMule.
- * Landing page styles live in src/pages/index.module.css.
+ * Docusaurus theme overrides for aMule.
  */
 
 :root {
@@ -61,4 +60,12 @@
 .footer__links .footer__item {
   display: flex;
   align-items: center;
+}
+
+/* Copyright / legal disclaimer — smaller and muted */
+.footer__copyright {
+  font-size: 0.85rem;
+  opacity: 0.5;
+  margin: 0 auto;
+  line-height: 1.6;
 }

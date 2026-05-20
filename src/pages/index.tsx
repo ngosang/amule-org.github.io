@@ -4,24 +4,23 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Hero from '@site/src/components/Hero';
 import WhatIsAMule from '@site/src/components/WhatIsAMule';
 import HighlightsSection from '@site/src/components/HighlightsSection';
-import BenchmarkSection from '@site/src/components/BenchmarkSection';
-import ScreenshotsSection from '@site/src/components/ScreenshotsSection';
 import FeaturesSection from '@site/src/components/FeaturesSection';
+import ScreenshotsSection from '@site/src/components/ScreenshotsSection';
+import styles from './index.module.css';
 
 export default function Home(): React.JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
       title={siteConfig.title}
-      description="aMule is a free, all-platform eMule-compatible eD2k/Kad client. Linux, macOS, Windows. Now massively faster: ~100–380× peer-to-peer throughput vs 2.3.3."
+      description="aMule is a free, all-platform eMule-compatible eD2k/Kad client for Linux, macOS, and Windows."
     >
       <Hero />
-      <main>
+      <main className={styles.homepageMain}>
         <WhatIsAMule />
         <HighlightsSection />
-        <BenchmarkSection />
-        <ScreenshotsSection />
         <FeaturesSection />
+        <ScreenshotsSection />
       </main>
     </Layout>
   );

@@ -22,7 +22,7 @@ export default function WhatIsAMule(): React.JSX.Element {
           __html: translate({
             id: 'homepage.whatisamule.p2',
             message:
-              'After a long quiet period, the project is back under active maintenance — focused not just on bug fixes and modernization, but on dramatic <strong>throughput improvements</strong> that matter directly for any P2P client.',
+              'After years of quiet, the project is back under active maintenance. The 3.0.0 release brings a modernized build system, fresh native packages for every major desktop, and an updated codebase ready for current systems — without breaking the protocol compatibility that lets aMule work alongside any eMule-based client.',
           }),
         }}
       />
