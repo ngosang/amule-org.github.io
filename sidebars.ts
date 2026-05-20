@@ -76,19 +76,19 @@ const sidebars: SidebarsConfig = {
       items: [
         {
           type: 'category',
-          label: 'Contributing',
-          link: {type: 'doc', id: 'development/contributing/index'},
-          items: [
-            'development/contributing/translations',
-            'development/contributing/documentation',
-          ],
-        },
-        {
-          type: 'category',
           label: 'Compilation',
           link: {type: 'doc', id: 'development/compilation/index'},
           items: [],
         },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Contributing',
+      link: {type: 'doc', id: 'contributing/index'},
+      items: [
+        'contributing/translations',
+        'contributing/documentation',
       ],
     },
     {type: 'doc', id: 'troubleshooting/index', label: 'Troubleshooting'},
