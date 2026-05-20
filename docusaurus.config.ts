@@ -2,16 +2,16 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
-const url = 'https://ngosang.github.io';
-const baseUrl = '/amule-org.github.io/';
+const url = process.env.DOCUSAURUS_URL ?? 'https://amule-org.github.io';
+const baseUrl = process.env.DOCUSAURUS_BASE_URL ?? '/';
 
 const config: Config = {
   title: 'aMule',
   tagline: 'All-platform eMule-compatible eD2k/Kad client',
   url,
   baseUrl,
-  organizationName: 'amule-org',
-  projectName: 'amule-org.github.io',
+  organizationName: 'aMule Org',
+  projectName: 'aMule',
   trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'warn',
