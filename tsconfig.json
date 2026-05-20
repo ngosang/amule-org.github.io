@@ -3,14 +3,13 @@
     "target": "ES2017",
     "lib": ["ES2017", "DOM"],
     "jsx": "react-jsx",
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "noEmit": true,
     "strict": false,
     "allowJs": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "baseUrl": "."
+    "esModuleInterop": true
   }
 }
