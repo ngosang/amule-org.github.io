@@ -1,7 +1,7 @@
 .section {
-  max-width: 760px;
+  max-width: 880px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 2.5rem 2rem 3rem;
   color: #94a3b8;
   text-align: center;
 }

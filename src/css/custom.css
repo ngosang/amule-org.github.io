@@ -62,10 +62,11 @@
   align-items: center;
 }
 
-/* Copyright / legal disclaimer — smaller and muted */
+/* Copyright / legal disclaimer — muted */
 .footer__copyright {
-  font-size: 0.85rem;
+  font-size: 1rem;
   opacity: 0.5;
   margin: 0 auto;
   line-height: 1.6;
+  max-width: 880px;
 }

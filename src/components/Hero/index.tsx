@@ -6,7 +6,6 @@ import styles from './styles.module.css';
 
 export default function Hero(): React.JSX.Element {
   const logoSrc = useBaseUrl('/img/aMule-icon.png');
-  const screenshotSrc = useBaseUrl('/img/screenshots/downloads.png');
   return (
     <header className={styles.hero}>
       <div className={styles.heroText}>
@@ -17,31 +16,18 @@ export default function Hero(): React.JSX.Element {
         </p>
         <div className={styles.ctaRow}>
           <Link
-            className="button button--primary button--lg"
+            className={`button button--lg ${styles.buttonDownload}`}
             to="/download"
           >
             <Translate id="homepage.hero.cta.download">Download</Translate>
           </Link>
           <Link
             className="button button--secondary button--lg"
-            to="/docs"
+            to="/docs/quickstart-guide/getting-started"
           >
-            <Translate id="homepage.hero.cta.docs">Documentation</Translate>
-          </Link>
-          <Link
-            className="button button--secondary button--lg"
-            to="https://github.com/amule-org/amule"
-          >
-            <Translate id="homepage.hero.cta.github">GitHub</Translate>
+            <Translate id="homepage.hero.cta.quickstart">Quick Start</Translate>
           </Link>
         </div>
-      </div>
-      <div className={styles.heroScreenshot}>
-        <img
-          src={screenshotSrc}
-          alt="aMule transfers tab"
-          className={styles.screenshotImg}
-        />
       </div>
     </header>
   );

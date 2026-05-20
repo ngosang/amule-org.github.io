@@ -5,11 +5,8 @@
   "homepage.hero.cta.download": {
     "message": "Descargar"
   },
-  "homepage.hero.cta.docs": {
-    "message": "Documentación"
-  },
-  "homepage.hero.cta.github": {
-    "message": "GitHub"
+  "homepage.hero.cta.quickstart": {
+    "message": "Inicio rápido"
   },
   "homepage.whatisamule.title": {
     "message": "¿Qué es aMule?"

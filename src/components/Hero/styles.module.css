@@ -1,7 +1,7 @@
 .hero {
   background: linear-gradient(180deg, #111936 0%, #0d1117 100%);
   color: #fff;
-  padding: 5rem 2rem 0;
+  padding: 2.5rem 2rem 0.75rem;
   text-align: center;
   overflow: hidden;
 }
@@ -9,18 +9,18 @@
 .heroText {
   max-width: 760px;
   margin: 0 auto;
-  padding-bottom: 3rem;
+  padding-bottom: 1.5rem;
 }
 
 .heroIcon {
-  width: 108px;
-  height: 108px;
+  width: 136px;
+  height: 136px;
   border-radius: 22px;
   margin-bottom: 1.25rem;
 }
 
 .heroTitle {
-  font-size: 3.75rem;
+  font-size: 3rem;
   font-weight: 800;
   color: #fff;
   margin-bottom: 0.5rem;
@@ -41,17 +41,15 @@
   flex-wrap: wrap;
 }
 
-.heroScreenshot {
-  max-width: 780px;
-  margin: 0 auto;
-  padding: 0 1rem;
+.buttonDownload {
+  background: #0e1938;
+  border: 1px solid rgba(255 255 255 / 0.18);
+  color: #e6edf3;
 }
 
-.screenshotImg {
-  width: 100%;
-  display: block;
-  border-radius: 10px 10px 0 0;
-  box-shadow:
-    0 -8px 60px rgba(99 132 255 / 0.12),
-    0 0 0 1px rgba(255 255 255 / 0.07);
+.buttonDownload:hover {
+  background: #162245;
+  border-color: rgba(255 255 255 / 0.28);
+  color: #fff;
 }
+
