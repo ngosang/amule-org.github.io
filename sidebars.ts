@@ -12,6 +12,28 @@ const sidebars: SidebarsConfig = {
         {type: 'doc', id: 'manual/installation/index', label: 'Installation'},
         {
           type: 'category',
+          label: 'Configuration',
+          link: {type: 'doc', id: 'manual/configuration/index'},
+          items: [
+            {
+              type: 'category',
+              label: 'Configuration Files',
+              link: {type: 'doc', id: 'manual/configuration/config-files/index'},
+              items: [
+                'manual/configuration/config-files/amule-conf',
+                'manual/configuration/config-files/remote-conf',
+              ],
+            },
+            'manual/configuration/download-folders',
+            'manual/configuration/get-high-id',
+            'manual/configuration/firewall',
+            'manual/configuration/upnp',
+            'manual/configuration/proxy',
+            'manual/configuration/events',
+          ],
+        },
+        {
+          type: 'category',
           label: 'Interfaces',
           link: {type: 'doc', id: 'manual/interfaces/index'},
           items: [
@@ -44,29 +66,6 @@ const sidebars: SidebarsConfig = {
             'manual/interfaces/amuled',
             'manual/interfaces/amuleweb',
             'manual/interfaces/amulecmd',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Configuration',
-          link: {type: 'doc', id: 'manual/configuration/index'},
-          items: [
-            'manual/configuration/get-high-id',
-            'manual/configuration/download-folders',
-            'manual/configuration/firewall',
-            'manual/configuration/upnp',
-            'manual/configuration/proxy',
-            'manual/configuration/ipfilter',
-            'manual/configuration/events',
-            {
-              type: 'category',
-              label: 'Files & directories',
-              link: {type: 'doc', id: 'manual/configuration/files/index'},
-              items: [
-                'manual/configuration/files/amule-conf',
-                'manual/configuration/files/remote-conf',
-              ],
-            },
           ],
         },
         {
@@ -119,10 +118,6 @@ const sidebars: SidebarsConfig = {
       label: 'Developer Guide',
       link: {type: 'doc', id: 'developer/index'},
       items: [
-        'developer/code-style',
-        'developer/ec-protocol',
-        'developer/debugging',
-        'developer/testing',
         {
           type: 'category',
           label: 'Compilation',
@@ -137,7 +132,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'File Formats',
-          link: {type: 'generated-index'},
+          link: {type: 'doc', id: 'developer/file-formats/index'},
           items: [
             'developer/file-formats/server-met',
             'developer/file-formats/nodes-dat',
@@ -146,6 +141,10 @@ const sidebars: SidebarsConfig = {
             'developer/file-formats/part-met',
           ],
         },
+        'developer/ec-protocol',
+        'developer/debugging',
+        'developer/testing',
+        'developer/code-style'
       ],
     },
     {

@@ -28,7 +28,7 @@ If aMule is **always** consuming heavy CPU at startup even when no new files hav
 
   This must be repeated whenever a new file is added or modified. The recommended fix is to upgrade to the latest aMule version.
 
-- **Corrupted `known.met`**: if none of the above applies, `known.met` may be corrupted (by an external program or user error). Delete it and restart aMule to force a full rehash:
+- **Corrupted `known.met`**: if none of the above applies, [`known.met`](../configuration/config-files/index.md#knownmet) may be corrupted (by an external program or user error). Delete it and restart aMule to force a full rehash:
 
   ```bash
   rm ~/.aMule/known.met
@@ -83,7 +83,7 @@ Two scenarios:
 
 ### Scenario 1: `*.part` files are missing
 
-The download data itself is gone. If `*.part.met` files are still present, aMule will restart the downloads from scratch on next launch. There is no recovery of the partially downloaded data.
+The download data itself is gone. If [`*.part.met`](../configuration/config-files/index.md#temporary-download-files) files are still present, aMule will restart the downloads from scratch on next launch. There is no recovery of the partially downloaded data.
 
 ### Scenario 2: `*.part.met` files are missing but `*.part` files exist
 
@@ -134,7 +134,7 @@ On next startup, aMule will rehash all shared files from scratch.
 
 This happens when:
 - The option **Preferences → Servers → "Auto-update serverlist at startup"** is enabled, **and**
-- There are no server list URLs in `~/.aMule/addresses.dat`.
+- There are no server list URLs in [`~/.aMule/addresses.dat`](../configuration/config-files/index.md#addressesdat).
 
 **Solutions:**
 - Add server list URLs in **Preferences → Servers → "List"**.
@@ -142,9 +142,9 @@ This happens when:
 
 ## What should I do if I lose my cryptkey.dat file?
 
-Losing `cryptkey.dat` means **all your credits are lost** — permanently. There is no recovery.
+Losing [`cryptkey.dat`](../configuration/config-files/index.md#cryptkeydat) means **all your credits are lost** — permanently. There is no recovery.
 
-Since the lost `cryptkey.dat` means your old identity cannot be verified, you must also delete `~/.aMule/preferences.dat`. Otherwise, clients that previously identified you (before the loss) will not be able to grant you credits again:
+Since the lost `cryptkey.dat` means your old identity cannot be verified, you must also delete [`~/.aMule/preferences.dat`](../configuration/config-files/index.md#preferencesdat). Otherwise, clients that previously identified you (before the loss) will not be able to grant you credits again:
 
 ```bash
 rm ~/.aMule/cryptkey.dat
@@ -253,7 +253,7 @@ Yes:
 - **aMule 2.0.0-rc4 or later**: right-click the directory icon you want to select recursively in the Shared Directories list.
 - **aMule 1.x and up to 2.0.0-rc3**: click the directory while holding the **Ctrl** key.
 
-aMule 3.0.0 introduced dedicated configuration files for shared directories: `shareddir-explicit.dat` (non-recursive shares) and `shareddir-recursive.dat` (recursive shares), replacing the single `shareddir.dat` file. See the [aMule Files Reference](/docs/manual/configuration/files) for details.
+aMule 3.0.0 introduced dedicated configuration files for shared directories: `shareddir-explicit.dat` (non-recursive shares) and `shareddir-recursive.dat` (recursive shares), replacing the single `shareddir.dat` file. See the [aMule Files Reference](/docs/manual/configuration/config-files) for details.
 
 ## I downloaded a file that got corrupted after completion. Can I avoid re-downloading the whole thing?
 

@@ -135,7 +135,7 @@ It is normal and expected for Transferred to be **smaller** than Completed (see 
 
 ## What are all those files aMule creates the first time it is run?
 
-Most of them are identical to eMule's. Detailed information about each file — and a complete list — can be found in [aMule Files](../configuration/files/index.md).
+Most of them are identical to eMule's. Detailed information about each file — and a complete list — can be found in [aMule Files](../configuration/config-files/index.md).
 
 ## Where are my downloaded files?
 
@@ -206,7 +206,7 @@ The practical rule: set your upload limit to at least **10 KBps** if your ISP al
 
 Yes. Create a plain text file with one `ed2k://` link per line, name it `ED2KLinks`, and place it in `~/.aMule`. aMule will automatically detect it, add all links to the download queue, and delete the file.
 
-See [ED2KLinks file](../configuration/files/index.md) for more information.
+See [ED2KLinks file](../configuration/config-files/index.md) for more information.
 
 ## Can I manage aMule remotely through telnet the same way I do with eDonkey?
 
@@ -307,12 +307,12 @@ Users on versions prior to 2.0.0-rc4 can use the `phoenix's aMule stdin patch`.
 
 Credits are stored in specific files. Copy the following from eMule's config directory (typically `C:\Program Files\eMule\config\` on Windows) into `~/.aMule`:
 
-- `cryptkey.dat`
-- `clients.met`
-- `preferences.dat`
-- `preferencesKad.dat`
-- `key_index.dat`
-- `load_index.dat`
+- [`cryptkey.dat`](../configuration/config-files/index.md#cryptkeydat)
+- [`clients.met`](../configuration/config-files/index.md#clientsmet)
+- [`preferences.dat`](../configuration/config-files/index.md#preferencesdat)
+- [`preferencesKad.dat`](../configuration/config-files/index.md#preferenceskaddat)
+- [`key_index.dat`](../configuration/config-files/index.md#kad-index-files)
+- [`load_index.dat`](../configuration/config-files/index.md#kad-index-files)
 - `src_index.dat`
 
 Start aMule and it will read those files. Your credits are preserved.
