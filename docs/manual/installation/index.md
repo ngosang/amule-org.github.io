@@ -158,17 +158,21 @@ To integrate the AppImage into your application menu, you can use [AppImageLaunc
 
 #### Running other components from the AppImage
 
-The AppImage bundles all [aMule components](../interfaces/index.md) — `amuled`, `amulegui`, `amulecmd`, `amuleweb`, and `ed2k` — in a single file. The component that runs is selected by the name used to invoke the AppImage.
-
-**Method 1 — symlinks (recommended):**
+The AppImage bundles all [aMule components](../interfaces/index.md) — `amule`, `amuled`, `amulegui`, `amuleweb`, `amulecmd`, `ed2k`, `alc`, `alcc`, `wxcas`, and `cas` — in a single file. Invoking the AppImage directly runs `amule` (the GUI); the component that runs is otherwise selected by the name used to invoke the AppImage.
 
 Create one symlink per component you want to use. The `.AppImage` suffix is stripped automatically, so you can name the symlinks after the binaries:
 
 ```sh
+ln -s aMule-<version>-x86_64.AppImage amule
 ln -s aMule-<version>-x86_64.AppImage amuled
+ln -s aMule-<version>-x86_64.AppImage amulegui
 ln -s aMule-<version>-x86_64.AppImage amuleweb
 ln -s aMule-<version>-x86_64.AppImage amulecmd
 ln -s aMule-<version>-x86_64.AppImage ed2k
+ln -s aMule-<version>-x86_64.AppImage alc
+ln -s aMule-<version>-x86_64.AppImage alcc
+ln -s aMule-<version>-x86_64.AppImage wxcas
+ln -s aMule-<version>-x86_64.AppImage cas
 ```
 
 Then invoke each symlink directly:
@@ -178,17 +182,6 @@ Then invoke each symlink directly:
 ./amuleweb --webpassword yourpassword
 ./amulecmd
 ./ed2k "ed2k://|file|..."
-```
-
-**Method 2 — `ARGV0` environment variable:**
-
-Set `ARGV0` to the component name before running the AppImage:
-
-```sh
-ARGV0=amuled ./aMule-<version>-x86_64.AppImage --ec-password yourpassword
-ARGV0=amuleweb ./aMule-<version>-x86_64.AppImage --webpassword yourpassword
-ARGV0=amulecmd ./aMule-<version>-x86_64.AppImage
-ARGV0=ed2k ./aMule-<version>-x86_64.AppImage "ed2k://|file|..."
 ```
 
 ### Flatpak
@@ -225,13 +218,17 @@ flatpak run --filesystem=/mnt/data --command=amuled org.amule.aMule
 
 #### Running other components from the Flatpak
 
-The Flatpak bundle also includes all [aMule components](../interfaces/index.md) — `amuled`, `amulegui`, `amulecmd`, `amuleweb`, and `ed2k`. Use the `--command` flag with `flatpak run` to select which binary to execute:
+The Flatpak bundle also includes all [aMule components](../interfaces/index.md) — `amule`, `amuled`, `amulegui`, `amuleweb`, `amulecmd`, `ed2k`, `alc`, `alcc`, `wxcas`, and `cas`. Use the `--command` flag with `flatpak run` to select which binary to execute:
 
 ```sh
 flatpak run --command=amuled org.amule.aMule --ec-password yourpassword
 flatpak run --command=amuleweb org.amule.aMule --webpassword yourpassword
 flatpak run --command=amulecmd org.amule.aMule
 flatpak run --command=ed2k org.amule.aMule "ed2k://|file|..."
+flatpak run --command=alc org.amule.aMule
+flatpak run --command=alcc org.amule.aMule
+flatpak run --command=wxcas org.amule.aMule
+flatpak run --command=cas org.amule.aMule
 ```
 
 ### Distribution Packages
