@@ -52,9 +52,9 @@ The primary section. Contains the majority of user-facing preferences.
 | `IndicateRatings` | `1` | Show file rating indicators in the download list. |
 | `AllcatType` | `0` | Category display mode for the "All" category tab. |
 | `ShowAllNotCats` | `0` | Show uncategorised files when a category tab is selected. |
-| `DisableKnownClientList` | `0` | Disable the known clients list in the Transfers window. |
-| `DisableQueueList` | `0` | Disable the upload queue list in the Transfers window. |
-| `SplitterbarPosition` | `75` | Position (percentage) of the splitter bar in the Transfers window. |
+| `DisableKnownClientList` | `0` | Disable the known clients list in the Downloads window. |
+| `DisableQueueList` | `0` | Disable the upload queue list in the Downloads window. |
+| `SplitterbarPosition` | `75` | Position (percentage) of the splitter bar in the Downloads window. |
 
 ### Connection
 
@@ -282,12 +282,12 @@ Browser selection for opening web links from within aMule.
 
 ## `[Proxy]` section
 
-SOCKS4, SOCKS5, or HTTP proxy configuration.
+SOCKS5, SOCKS4, SOCKS4a, or HTTP proxy configuration. See [Proxy](../proxy.md) for a full explanation of how the proxy feature works.
 
 | Key | Default | Description |
 |---|---|---|
 | `ProxyEnableProxy` | `0` | Enable proxy use. |
-| `ProxyType` | `0` | Proxy protocol: `0` = SOCKS4, `1` = SOCKS5, `2` = HTTP. |
+| `ProxyType` | `0` | Proxy protocol: `0` = SOCKS5, `1` = SOCKS4, `2` = HTTP, `3` = SOCKS4a. |
 | `ProxyName` | _(empty)_ | Proxy hostname or IP address. |
 | `ProxyPort` | `1080` | Proxy port. |
 | `ProxyEnablePassword` | `0` | Enable proxy authentication. |
@@ -442,8 +442,8 @@ Window and panel layout settings. Written and read by aMule automatically; not i
 |---|---|---|
 | `HideOnClose` | `0` | Hide the main window to the tray instead of quitting when the window is closed. Requires `EnableTrayIcon=1`. |
 | `AppImageIntegrationDeclined` | `0` | Set to `1` if the user has declined the AppImage `.desktop` integration prompt. Written automatically; do not edit. |
-| `[GUI/TransferWnd] Splitter` | `114` | Vertical splitter position (pixels) in the Transfers window. |
-| `[GUI/TransferWnd] ShowClientList` | `1` | Show the client list panel in the Transfers window. |
+| `[GUI/TransferWnd] Splitter` | `114` | Vertical splitter position (pixels) in the Downloads window. |
+| `[GUI/TransferWnd] ShowClientList` | `1` | Show the client list panel in the Downloads window. |
 
 ## `[General]` section
 
