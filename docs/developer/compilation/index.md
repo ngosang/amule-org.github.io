@@ -27,9 +27,9 @@ wxWidgets must be built with Unicode support (the default since wx 3.0). aMule i
 | `libupnp` ≥ 1.6.6 | UPnP port forwarding |
 | `libmaxminddb` ≥ 1.0 | Country flags and IP→country mapping |
 | `gettext` ≥ 0.11.5 | Native-language support (NLS) |
-| `libayatana-appindicator3` | **Linux only.** StatusNotifierItem (SNI) tray-icon backend. Without it, the tray falls back to the legacy `GtkStatusIcon` API, which GNOME Shell removed in 3.26 and wlroots compositors never implemented (tray icon silently invisible on vanilla GNOME / Fedora / Sway). |
-| `glib-2.0` dev headers | **Linux only.** Required for the Wayland `wl_app_id` binding (`g_set_prgname()`). Mandatory when building `amule`, `amuled`, or `amulegui` on Linux. |
-| `readline` | Line editing in `amulecmd` |
+| `libayatana-appindicator3` | **Linux only.** StatusNotifierItem (SNI) tray-icon backend; see [Building on Linux](linux.md#sni-tray-icon). |
+| `glib-2.0` dev headers | **wxGTK builds (Linux / BSD).** Required for the `g_set_prgname()` desktop-entry binding when building `amule`, `amuled`, or `amulegui`. No-op on macOS. |
+| `readline` | Line editing in `amulecmd` and `amuleweb` |
 | `binutils-dev` / `libbfd` | BFD-based crash handler |
 | `libpng` | PNG support in `amuleweb` |
 
@@ -60,21 +60,23 @@ All options are passed as `-DOPTION=YES` or `-DOPTION=NO` to the initial `cmake 
 
 | Option | Default | Builds |
 |---|---|---|
-| `BUILD_MONOLITHIC` | YES | `amule` — all-in-one GUI client |
-| `BUILD_DAEMON` | NO | `amuled` — headless daemon |
-| `BUILD_REMOTEGUI` | NO | `amulegui` — remote control GUI |
-| `BUILD_WEBSERVER` | NO | `amuleweb` — HTTP web interface |
-| `BUILD_AMULECMD` | NO | `amulecmd` — CLI client for the daemon |
-| `BUILD_ED2K` | YES | `ed2k` — eD2k link handler helper |
-| `BUILD_ALC` | NO | `alc` — aMuleLinkCreator GUI |
-| `BUILD_ALCC` | NO | `alcc` — aMuleLinkCreator console |
-| `BUILD_CAS` | NO | `cas` — C statistics tool (Unix only) |
-| `BUILD_WXCAS` | NO | `wxcas` — GUI statistics tool |
+| `BUILD_MONOLITHIC` | YES | [`amule`](../../manual/interfaces/gui/amule.md) — all-in-one GUI client |
+| `BUILD_DAEMON` | NO | [`amuled`](../../manual/interfaces/amuled.md) — headless daemon |
+| `BUILD_REMOTEGUI` | NO | [`amulegui`](../../manual/interfaces/gui/amulegui.md) — remote control GUI |
+| `BUILD_WEBSERVER` | NO | [`amuleweb`](../../manual/interfaces/amuleweb.md) — HTTP web interface |
+| `BUILD_AMULECMD` | NO | [`amulecmd`](../../manual/interfaces/amulecmd.md) — CLI client for the daemon |
+| `BUILD_ED2K` | YES | [`ed2k`](../../manual/utilities/ed2k.md) — eD2k link handler helper |
+| `BUILD_ALC` | NO | [`alc`](../../manual/utilities/alc-alcc.md) — aMuleLinkCreator GUI |
+| `BUILD_ALCC` | NO | [`alcc`](../../manual/utilities/alc-alcc.md) — aMuleLinkCreator console |
+| `BUILD_CAS` | NO | [`cas`](../../manual/utilities/wxcas-cas.md) — C statistics tool (Unix only) |
+| `BUILD_WXCAS` | NO | [`wxcas`](../../manual/utilities/wxcas-cas.md) — GUI statistics tool |
 | `BUILD_FILEVIEW` | NO | `fileview` — console file viewer (experimental) |
-| `BUILD_TESTING` | YES | Unit test suite |
-| `ENABLE_NLS` | YES | Native-language support (gettext) |
-| `ENABLE_UPNP` | YES | UPnP port forwarding |
+| `BUILD_TESTING` | YES | [Unit test suite](../testing.md) |
+| `ENABLE_NLS` | YES | [Native-language support](../translations.md) (gettext) |
+| `ENABLE_UPNP` | YES | [UPnP port forwarding](../../manual/configuration/upnp.md) |
 | `ENABLE_IP2COUNTRY` | NO | IP→country mapping (libmaxminddb) |
+| `ENABLE_MMAP` | NO | Use memory-mapped file I/O where supported |
+| `DOWNLOAD_AND_BUILD_DEPS` | NO | When an optional dependency is missing, let CMake download and build it from source instead of failing (requires Git) |
 
 To list all available options with descriptions:
 
@@ -108,6 +110,8 @@ Or, using the `BUILD_EVERYTHING` shorthand:
 cmake -B build -DBUILD_EVERYTHING=YES
 ```
 
+`BUILD_EVERYTHING` turns on every build target (`BUILD_*`), but it does **not** enable `ENABLE_IP2COUNTRY` (which is `NO` by default). Pass `-DENABLE_IP2COUNTRY=YES` alongside it if you want IP→country mapping. `ENABLE_NLS` and `ENABLE_UPNP` are already `YES` by default.
+
 ### Debug Build
 
 ```sh
@@ -129,7 +133,9 @@ Default installation layout under `/usr/local`:
 |---|---|
 | Binaries | `/usr/local/bin/` |
 | Translation catalogs | `/usr/local/share/locale/<lang>/LC_MESSAGES/amule.mo` |
-| Data files and docs | `/usr/local/share/amule/` |
+| Data files (skins, webserver) | `/usr/local/share/amule/` |
+| Documentation | `/usr/local/share/doc/amule/` |
+| License | `/usr/local/share/LICENSE.md` |
 | Desktop entries | `/usr/local/share/applications/` |
 | Icon | `/usr/local/share/icons/hicolor/128x128/apps/` |
 | AppStream metadata | `/usr/local/share/metainfo/` |
@@ -154,6 +160,8 @@ cmake --install build --prefix=$HOME/.local
 
 Binaries land in `~/.local/bin/` (make sure it is in your `$PATH`).
 
+On Linux, after a raw `cmake --install` you may need to refresh the icon cache and ensure the SNI tray-icon backend is present — see [Desktop Integration](linux.md#desktop-integration).
+
 ## Uninstalling
 
 CMake records every installed file in `build/install_manifest.txt`. Use it to remove them:
@@ -166,50 +174,9 @@ sudo xargs rm -f < build/install_manifest.txt
 xargs rm -f < build/install_manifest.txt
 ```
 
-## Linux-Only: Icon Cache
-
-`cmake --install` places `org.amule.aMule.png` in `<prefix>/share/icons/hicolor/128x128/apps/`. Distribution packages (`.deb`, `.rpm`) refresh the GTK icon-theme cache via post-install scripts. A raw `cmake --install` does not. If the launcher or dock shows a generic placeholder icon instead of the aMule mule, refresh the cache manually:
-
-```sh
-gtk-update-icon-cache -f -t <prefix>/share/icons/hicolor/
-```
-
-GNOME Shell's inotify watcher picks up new icons on its own within a few seconds, so the manual command is usually not necessary.
-
-## Linux-Only: SNI Tray Icon
-
-The `libayatana-appindicator3` library provides the **StatusNotifierItem (SNI)** D-Bus backend for the system tray icon. Without it:
-
-- The tray icon falls back to the legacy `GtkStatusIcon` API.
-- `GtkStatusIcon` was removed from GNOME Shell in 3.26 and is not implemented by wlroots compositors (Sway, Hyprland, etc.).
-- The tray icon will be **silently invisible** on vanilla GNOME, Fedora GNOME, and wlroots desktops.
-
-Install the development package before building:
-
-```sh
-# Debian / Ubuntu
-sudo apt install libayatana-appindicator3-dev
-
-# Fedora / RHEL
-sudo dnf install libayatana-appindicator-gtk3-devel
-```
-
-When `cmake` finds the library, it logs:
-
-```
--- AppIndicator3 found: ... — tray icon uses SNI backend
-```
-
-If it is not found:
-
-```
--- AppIndicator3 not found — tray icon falls back to legacy GtkStatusIcon,
-   invisible on modern GNOME/wlroots
-```
-
 ## Refreshing Translated Man Pages
 
-The translated `*.LANG.1` man pages under `docs/man/` are committed pre-generated artifacts. They are refreshed from `docs/man/po/manpages-LANG.po` using `po4a`. The refresh CMake target is available only when `po4a` is found at configure time:
+The translated `*.LANG.1` man pages under `docs/man/` are committed pre-generated artifacts. They are refreshed from `docs/man/po/manpages-LANG.po` using `po4a`. See [Man Page Translations](../translations.md#man-page-translations) for the full translation workflow. The refresh CMake target is available only when `po4a` is found at configure time:
 
 ```sh
 cmake --build build --target po4a-update
