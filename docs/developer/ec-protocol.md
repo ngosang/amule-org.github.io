@@ -5,7 +5,7 @@ title: EC Protocol
 
 The **External Connections (EC) protocol** is the binary protocol that [`amuled`](../manual/interfaces/amuled.md), [`amulegui`](../manual/interfaces/gui/amulegui.md), [`amuleweb`](../manual/interfaces/amuleweb.md), and [`amulecmd`](../manual/interfaces/amulecmd.md) use to communicate. It is a structured, efficient, and extensible binary protocol.
 
-The protocol is defined in the aMule source under `src/libs/ec/` and `src/ExternalConn.cpp`. The canonical specification is in `docs/EC_Protocol.md` in the repository.
+The protocol is defined in the aMule source under `src/libs/ec/` and `src/ExternalConn.cpp` — those files are the canonical reference if anything on this page conflicts with them.
 
 :::note
 EC is considered stable. Opcodes, tag names, and tag content formats can still change between releases. If you are implementing an EC client, pin the `EC_TAG_PROTOCOL_VERSION` to the version you have tested against.
@@ -37,13 +37,18 @@ The transmission layer header is always exactly **8 bytes**: a 4-byte flags word
 |---|---|---|
 | `0` | `EC_FLAG_ZLIB` | When set, the application-layer data is zlib-compressed. |
 | `1` | `EC_FLAG_UTF8_NUMBERS` | When set, all integers in the application layer are encoded as UTF-8 wide characters (avoids zero bytes in small packets). |
+| `2` | Reserved | Must be 0. |
 | `3` | Reserved | Must be 0. |
 | `4` | `EC_FLAG_LARGE_TAG_COUNT` | When set, `TAGCOUNT` fields use the sentinel-extended encoding (see [Section 1.2](#section-12--application-layer)). Both sides must have advertised `EC_TAG_CAN_LARGE_TAG_COUNT` in their authentication packet. |
 | `5` | Always 1 | Fixed protocol marker; acts as a sanity check. |
 | `6` | Always 0 | Fixed protocol marker; acts as a sanity check. |
-| `8–14`, `16–22`, `24–31` | Reserved | Must be 0. |
+| `7–31` | Reserved | Must be 0. |
 
 The sender always sets bit 5 and clears bit 6. The receiver rejects any packet where `(flags & 0x60) != 0x20`.
+
+:::note
+Unlike `EC_FLAG_ZLIB` / `EC_FLAG_UTF8_NUMBERS` / `EC_FLAG_LARGE_TAG_COUNT`, the partial INC_UPDATE capability (`EC_TAG_CAN_PARTIAL_UPDATE`, see [Section 3](#section-3--authentication)) has no transmission-layer flag bit. Once advertised by the client and echoed by the server at auth time it is active for the whole connection, with no per-packet toggle.
+:::
 
 ### Example
 
@@ -113,7 +118,7 @@ Boolean values are primarily used for reading and writing preferences.
 
 ### MD4/MD5 Hashes
 
-Always 16 bytes, big-endian (MSB first), stored with `EC_TAGTYPE_HASH16`.
+Always 16 raw bytes (byte order does not apply to the hash itself), stored with `EC_TAGTYPE_HASH16`.
 
 ### IPv4 Addresses
 
@@ -138,8 +143,8 @@ EC_OP_AUTH_REQ (0x02)
     +-- EC_TAG_CAN_ZLIB            (optional) — advertises zlib compression support
     +-- EC_TAG_CAN_UTF8_NUMBERS    (optional) — advertises UTF-8 number encoding support
     +-- EC_TAG_CAN_NOTIFY          (optional) — advertises notification support
-    +-- EC_TAG_CAN_LARGE_TAG_COUNT (always)   — advertises sentinel-extended tag count support
-    +-- EC_TAG_CAN_PARTIAL_UPDATE  (always)   — advertises partial INC_UPDATE support
+    +-- EC_TAG_CAN_LARGE_TAG_COUNT (optional) — advertises sentinel-extended tag count support
+    +-- EC_TAG_CAN_PARTIAL_UPDATE  (optional) — advertises partial INC_UPDATE support
 ```
 
 Each `EC_TAG_CAN_*` is an empty tag (type `CUSTOM`, zero-length data) advertising a capability. `EC_TAG_PASSWD_HASH` does **not** appear in this packet.
@@ -178,7 +183,7 @@ On success:
 
 ```
 EC_OP_AUTH_OK (0x04)
-    +-- EC_TAG_SERVER_VERSION      (optional) — aMule version string
+    +-- EC_TAG_SERVER_VERSION      (always)   — aMule version string
     +-- EC_TAG_CAN_LARGE_TAG_COUNT (optional) — echoed if the server accepts the feature
     +-- EC_TAG_CAN_PARTIAL_UPDATE  (optional) — echoed if partial INC_UPDATE mode is active
 ```
@@ -328,7 +333,9 @@ EC_OP_STATS (0x0c)
     +-- EC_TAG_STATS_KAD_NODES           (0x021B) uint32 — known Kad nodes
 ```
 
-`EC_DETAIL_FULL` and `EC_DETAIL_INC_UPDATE` include additional tags for overhead, session totals, Kad indexing statistics, and buddy status (see `ECCodes.h` for the full `0x0200` tag range).
+The 11 tags above are the minimum reply when Kademlia is *not* connected. When `Kademlia::CKademlia::IsConnected()` returns true the reply additionally contains `EC_TAG_STATS_KAD_FIREWALLED_UDP`, `KAD_INDEXED_SOURCES`, `KAD_INDEXED_KEYWORDS`, `KAD_INDEXED_NOTES`, `KAD_INDEXED_LOAD`, `KAD_IP_ADDRESS`, `KAD_IN_LAN_MODE`, `BUDDY_STATUS`, `BUDDY_IP`, and `BUDDY_PORT`.
+
+`EC_DETAIL_FULL` and `EC_DETAIL_INC_UPDATE` additionally prepend `STATS_UP_OVERHEAD`, `STATS_DOWN_OVERHEAD`, `STATS_BANNED_COUNT`, a logger tag, `STATS_TOTAL_SENT_BYTES`, `STATS_TOTAL_RECEIVED_BYTES`, and `STATS_SHARED_FILE_COUNT`. See `Get_EC_Response_StatRequest` in `ExternalConn.cpp` for the exact assembly, and `ECCodes.h` for the full `0x0200` tag range.
 
 Partial wire decoding of the reply:
 
@@ -377,11 +384,11 @@ Partial wire decoding:
   00 01                             Tag count: 1
     00 0b                           EC_TAG_CONNSTATE (0x0005, has children — wire = 0x000B)
       04                            EC_TAGTYPE_UINT32
-      00 00 00 26                   TagLen: 38
+      00 00 00 28                   TagLen: 40
       00 01                         Child tag count: 1
         0a 01                       EC_TAG_SERVER (0x0500, has children — wire = 0x0A01)
           08                        EC_TAGTYPE_IPV4
-          00 00 00 1a               TagLen: 26
+          00 00 00 1b               TagLen: 27
           00 01                     Child tag count: 1
             0a 02                   EC_TAG_SERVER_NAME (0x0501, no children — wire = 0x0A02)
               06                    EC_TAGTYPE_STRING
@@ -391,6 +398,12 @@ Partial wire decoding:
           c3 f5 f4 f3 12 35         EC_TAG_SERVER data: IP 195.245.244.243, port 4661
       90 cc 83 52                   EC_TAG_CONNSTATE data: current UserID
 ```
+
+How the `TAGLEN` values arise (matching `CECTag::GetTagLen` in `ECTag.cpp`):
+
+- `EC_TAG_SERVER_NAME`: 14 (own data) → `TAGLEN = 14`.
+- `EC_TAG_SERVER`: 6 (own IPv4 data) + 7 (`SERVER_NAME` header: `TAGNAME` + `TAGTYPE` + `TAGLEN`) + 14 (`SERVER_NAME` data) → `TAGLEN = 27`. Note that `SERVER`'s own `TAGCOUNT` field is *not* counted in its own `TAGLEN` — only each sub-tag's contribution is.
+- `EC_TAG_CONNSTATE`: 4 (own UserID data) + 7 (`SERVER` header) + 2 (`SERVER`'s `TAGCOUNT`, because `SERVER` has children) + 27 (`SERVER`'s `TAGLEN`) → `TAGLEN = 40`.
 
 ### Search Request
 
