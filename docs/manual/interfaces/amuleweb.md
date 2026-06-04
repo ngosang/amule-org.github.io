@@ -25,7 +25,7 @@ Options can be given on the command line or written to the configuration file (w
 
 | Option | Description |
 |---|---|
-| `-h`, `--host=<host>` | Host where aMule is running; an IP address or DNS name (default: `localhost`) |
+| `-h`, `--host=<host>` | Host where aMule is running; an IP address or DNS name (default: `127.0.0.1`) |
 | `-p`, `--port=<port>` | aMule's port for External Connections (default: `4712`) |
 | `-P`, `--password=<password>` | External Connections password (plaintext; hashed internally) |
 | `-f`, `--config-file=<path>` | Use the given configuration file (default: `~/.aMule/remote.conf`) |
@@ -34,6 +34,7 @@ Options can be given on the command line or written to the configuration file (w
 | `-v`, `--verbose` | Be verbose — also show debug messages |
 | `-w`, `--write-config` | Write the command-line options to the config file and exit |
 | `--create-config-from=<path>` | Create the config file based on a valid aMule `amule.conf`, then exit |
+| `--force-zlib` | Force ZLIB compression even when the core resolves to a local/LAN IP; useful over a VPN tunnel that resolves to a LAN IP. Sets [`/EC/ForceZLIB`](../configuration/config-files/remote-conf.md#ec-section) |
 | `--help` | Print a short usage description |
 | `--version` | Display the version number |
 
@@ -122,7 +123,7 @@ Copy the hash (without the trailing `  -`) into `ECPassword`.
 ```bash
 amuleweb \
   --write-config \
-  --host=localhost \
+  --host=127.0.0.1 \
   --password=yourpassword \
   --admin-pass=webpassword
 ```
@@ -151,7 +152,7 @@ Open `http://localhost:4711` (replace `localhost` with the server's hostname or 
 1. `$HOME/.aMule/webserver/<skin-name>/`
 2. The installation prefix: `/usr/local/share/amule/webserver/` (compiled) or `/usr/share/amule/webserver/` (package-installed).
 
-The default skin name is `default`. Change it with the `Template` key in [`amule.conf`](../configuration/config-files/amule-conf.md) (`[WebServer]` section) or the `/Webserver/Template` key in [`remote.conf`](../configuration/config-files/remote-conf.md).
+The default skin name is `default`. Change it with the `Template` key in [`amule.conf`](../configuration/config-files/amule-conf.md) (`[WebServer]` section) or the `/WebServer/Template` key in [`remote.conf`](../configuration/config-files/remote-conf.md).
 
 If `amuleweb` fails to start because it cannot load the template, create the directory manually and copy the template files:
 

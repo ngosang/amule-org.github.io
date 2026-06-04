@@ -16,6 +16,7 @@ aMule provides a set of built-in keyboard and mouse shortcuts for navigating and
 | `Del` | [Downloads](./downloads.md) / [Networks](./networks.md) / [Messages](./messages.md) | Remove the selected item: cancel the download, remove the server, or remove the friend |
 | *Any character* | All | In a list: jump to the item whose first-column value starts with the typed string (resets after 1.5 s; pressing the same letter repeatedly cycles through matches) |
 | `Ctrl+A` | All | Select all items in the current list |
+| `Ctrl+C` | [Networks](./networks.md) / ED2K Info / Kad Info | Copy the selected rows (or the whole panel) to the clipboard as tab-separated `label`/`value` pairs |
 | `Ctrl+Q` | All | Exit aMule |
 | `F1` | All | Open the online help wiki in your browser (only when no modifier key is held) |
 | `F2` | [Downloads](./downloads.md) | Rename the selected download (part files only, not completed files) |
@@ -34,5 +35,6 @@ aMule provides a set of built-in keyboard and mouse shortcuts for navigating and
 | Click on a column header | All | Sort the list by that column (toggles ascending/descending) |
 | Right-click on a column header | All | Show a menu to toggle which columns are visible |
 | Right-click on an item | All | Open the item's context menu |
+| Right-click → Copy | [Networks](./networks.md) / ED2K Info / Kad Info | Copy the selected rows (or the whole panel) to the clipboard |
 | Middle-click or right-click on a tab | All | Close the tab or open the tab menu |
 | Click or double-click | [System tray icon](./tray-icon.md) | Show or hide the main window |

@@ -147,6 +147,7 @@ EC_OP_AUTH_REQ (0x02)
     +-- EC_TAG_CAN_NOTIFY          (optional) — advertises notification support
     +-- EC_TAG_CAN_LARGE_TAG_COUNT (optional) — advertises sentinel-extended tag count support
     +-- EC_TAG_CAN_PARTIAL_UPDATE  (optional) — advertises partial INC_UPDATE support
+    +-- EC_TAG_PREFER_NO_ZLIB      (optional) — hint: skip per-packet zlib (client dialed a loopback/LAN IP)
 ```
 
 Each `EC_TAG_CAN_*` is an empty tag (type `CUSTOM`, zero-length data) advertising a capability. `EC_TAG_PASSWD_HASH` does **not** appear in this packet.
@@ -295,6 +296,12 @@ UTF-8 decode: `c8 80` → `0x0200`. Bit 0 = 0 (no children). True code = `0x0200
 A client that advertises `EC_TAG_CAN_PARTIAL_UPDATE` (0x0012) in its auth request tells the server it understands the **partial incremental-update** protocol. When the server activates this mode it echoes `EC_TAG_CAN_PARTIAL_UPDATE` in `EC_OP_AUTH_OK`.
 
 In a partial `EC_DETAIL_INC_UPDATE` response (e.g. the download or shared-file list), the server may then **omit files that have not changed** and signal removals explicitly with an `EC_TAG_FILE_REMOVED` (0x0013) tag, instead of the legacy "absence implies deletion" convention. The feature is backward-compatible: a server talking to a client that did **not** advertise the capability (or an old server that does not implement it) falls back to emitting an alive marker for every unchanged file, so the client's bulk "missing == deleted" logic still works.
+
+### ZLIB Locality Preference
+
+`EC_TAG_CAN_ZLIB` (0x000C) is the **capability** (zlib stays available, and is always used for oversized payloads). `EC_TAG_PREFER_NO_ZLIB` (0x0014) is an optional **preference** asking the server to skip per-packet zlib for small/medium payloads, where it would be pure CPU overhead on a fast link.
+
+The preference is set by the **client** — the only side that knows the IP it dialed — when the resolved server address is loopback, RFC1918 LAN or RFC3927 link-local. The user can override it (`amulegui`'s **Force ZLIB compression** checkbox, or `--force-zlib` / [`/EC/ForceZLIB`](../manual/configuration/config-files/remote-conf.md#ec-section) for `amulecmd` and `amuleweb`), in which case the tag is not sent. An old server ignores the unknown tag and an old client never sends it; both fall back to always-zlib.
 
 ## Section 4 — Common Operations
 

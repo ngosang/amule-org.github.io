@@ -195,3 +195,7 @@ When a port is firewalled, aMule attempts to find a *buddy* — another Kad node
 :::tip
 For the best Kad performance, both TCP and UDP ports should show `OK`. If either shows `Firewalled`, open and forward the indicated port in your router or firewall.
 :::
+
+:::tip Copying diagnostic values
+You can copy the contents of the **ED2K Info** and **Kad Info** panels to the clipboard: press `Ctrl+C`, or right-click and choose **Copy**. With rows selected, only those rows are copied; with no selection, the whole panel is copied. Values are placed on the clipboard as tab-separated `label` / `value` pairs, one per line.
+:::
