@@ -434,7 +434,7 @@ All three files are internal to the Kad implementation and are not intended for 
 
 ## `statistics.dat` {#statisticsdat}
 
-Small binary file storing aMule's lifetime traffic totals: the cumulative number of bytes ever uploaded and downloaded across all sessions. These totals were previously kept in the `[Statistics]` section of `amule.conf` (`TotalUploadedBytes` / `TotalDownloadedBytes`); aMule now migrates those keys into this file on first load and deletes them from the config.
+Small binary file storing aMule's lifetime traffic totals: the cumulative number of bytes ever uploaded and downloaded across all sessions. Introduced in 2.3.1; earlier versions kept these totals in the `[Statistics]` section of `amule.conf` (`TotalUploadedBytes` / `TotalDownloadedBytes`). aMule 3.0.0 removed the automatic migration of those legacy keys, so totals from 2.2.x or earlier are no longer imported.
 
 ### Format
 

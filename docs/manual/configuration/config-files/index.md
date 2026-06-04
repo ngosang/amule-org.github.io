@@ -231,7 +231,7 @@ For its format, see the [`canceled.met` format reference](../../../developer/fil
 
 **Location:** `~/.aMule/statistics.dat`
 
-Small binary file storing aMule's **lifetime traffic totals** — the cumulative number of bytes ever uploaded and downloaded across all sessions. These totals were previously kept in the `[Statistics]` section of `amule.conf`; current aMule migrates them into this file on first load.
+Small binary file storing aMule's **lifetime traffic totals** — the cumulative number of bytes ever uploaded and downloaded across all sessions. aMule has stored these totals in this file since 2.3.1; earlier versions kept them in the `[Statistics]` section of `amule.conf`.
 
 For its format, see the [`statistics.dat` format reference](../../../developer/file-formats/index.md#statisticsdat).
 

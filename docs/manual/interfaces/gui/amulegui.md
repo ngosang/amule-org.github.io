@@ -53,11 +53,12 @@ Before `amulegui` can connect, the core (`amuled` or `amule`) must have External
 
 When `amulegui` starts, it presents a connection dialog. Enter:
 
-- **Host/IP** — hostname or IP address of the machine running the core (default: `localhost`; use `127.0.0.1` for the local machine).
+- **Host/IP** — hostname or IP address of the machine running the core (default: `127.0.0.1`).
 - **Port** — EC port (default: `4712`).
 - **Password** — the plaintext password (not the MD5 hash); `amulegui` hashes it internally before sending. A non-empty password is required.
+- **Force ZLIB compression** — traffic is compressed with zlib by default, except when the core resolves to a local/LAN address (where compression is skipped); tick this to compress regardless — useful when the core is reachable over a VPN tunnel that resolves to a LAN IP.
 
-Tick the **Save** checkbox to store the host, port and hashed password so they are reused on the next launch. With saved settings in place you can start with the `-s`/`--skip` flag (see below) to bypass the dialog entirely. Traffic is compressed with zlib by default.
+Tick the **Save** checkbox to store the host, port, hashed password and the **Force ZLIB compression** choice (persisted as [`/EC/ForceZLIB`](../../configuration/config-files/remote-conf.md#ec-section)) so they are reused on the next launch. With saved settings in place you can start with the `-s`/`--skip` flag (see below) to bypass the dialog entirely.
 
 If the connection fails or times out, see [Remote Access Troubleshooting](../../troubleshooting/remote-access.md).
 

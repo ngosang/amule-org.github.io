@@ -47,12 +47,13 @@ A single key written at the top of the file, before any section header. It selec
 
 | Key | Default | CLI override | Description |
 |---|---|---|---|
-| `Host` | `localhost` | `-h` / `--host` | Hostname or IP address of the machine running [`amule`](../../interfaces/gui/amule.md) or [`amuled`](../../interfaces/amuled.md). |
+| `Host` | `127.0.0.1` | `-h` / `--host` | Hostname or IP address of the machine running [`amule`](../../interfaces/gui/amule.md) or [`amuled`](../../interfaces/amuled.md). The literal loopback address `127.0.0.1` is used instead of `localhost` because `localhost` lookups can fail intermittently on Windows. |
 | `Port` | `4712` | `-p` / `--port` | Port where the core listens for [External Connections](../../../developer/ec-protocol) (EC protocol). |
 | `Password` | _(empty)_ | `-P` / `--password` | MD5 hash of the EC password. The connection is rejected unless this matches the core's `ECPassword` (or both are empty). The CLI flag **accepts a plain-text password, not an MD5 hash**; passing an empty value clears the stored hash. |
-| `ZLIB` | `1` | _(none)_ | Enable zlib compression on the EC connection. Reduces bandwidth at the cost of CPU. Read at startup but never written back to the file. |
+| `ZLIB` | `1` | _(none)_ | Enable zlib compression on the EC connection. Reduces bandwidth at the cost of CPU. |
+| `ForceZLIB` | `0` | `--force-zlib` | Force ZLIB compression regardless of the locality of the destination IP. Useful when the core is reachable over a VPN tunnel that resolves to a LAN IP (compression is otherwise skipped for local addresses). |
 
-## `[Webserver]` section
+## `[WebServer]` section
 
 [`amuleweb`](../../interfaces/amuleweb.md) settings. This section is written by `amuleweb`; the other two tools ignore it.
 
@@ -66,18 +67,11 @@ A single key written at the top of the file, before any section header. It selec
 | `GuestPassword` | _(empty)_ | `-G` / `--guest-pass` | MD5 hash of the guest password. Only relevant when `AllowGuest` is `1`. The CLI flag **accepts a plain-text password, not an MD5 hash**; passing an empty value clears the stored hash. |
 | `PageRefreshTime` | `120` | _(none)_ | Interval in seconds between automatic page reloads in the browser. `0` disables automatic refresh. |
 | `UPnPWebServerEnabled` | `0` | `-u` / `--enable-upnp` | Enable UPnP to automatically open the web server port on the router. |
-
-## `[WebServer]` section
-
-A second, separately-spelled section that holds a single key.
+| `UPnPTCPPort` | `50001` | `-U` / `--upnp-port` | Internal UPnP TCP port used for web server UPnP communication. |
 
 :::note
-Due to a long-standing inconsistency in the source, the UPnP TCP port is read and written under `/WebServer/` (capital **S**) while every other web server key uses `/Webserver/` (lowercase **s**). As a result `amuleweb` writes this key into its own `[WebServer]` section, distinct from `[Webserver]`. Both spellings are preserved for compatibility.
+The canonical spelling of this section is `[WebServer]` (capital **S**), matching [`amule.conf`](amule-conf.md). Older builds of `amuleweb` wrote most keys under `[Webserver]` (lowercase **s**) and only `UPnPTCPPort` under `[WebServer]` (capital **S**) — a long-standing typo. Because `wxFileConfig` treats section names as case-insensitive, both spellings refer to the same section and keys written by older builds are still read correctly.
 :::
-
-| Key | Default | CLI override | Description |
-|---|---|---|---|
-| `UPnPTCPPort` | `50001` | `-U` / `--upnp-port` | Internal UPnP TCP port used for web server UPnP communication. |
 
 ## `[eMule]` section
 
@@ -93,15 +87,15 @@ The main body above is organized by the file's INI sections. The notes below sum
 
 ### amulecmd
 
-Uses only the common keys: `Locale` and the `[EC]` section. Besides the connection flags listed above, it accepts `-w` / `--write-config` (write the current command-line options back to the config file), `--create-config-from` (generate `remote.conf` from an existing `amule.conf`), `-q` / `--quiet`, and `-v` / `--verbose`.
+Uses only the common keys: `Locale` and the `[EC]` section. Besides the connection flags listed above, it accepts `-w` / `--write-config` (write the current command-line options back to the config file), `--create-config-from` (generate `remote.conf` from an existing `amule.conf`), `--force-zlib` (force ZLIB compression — sets `/EC/ForceZLIB`), `-q` / `--quiet`, and `-v` / `--verbose`.
 
 ### amuleweb
 
-Owns the `[Webserver]` and `[WebServer]` sections in addition to the common keys. It also accepts `-L` / `--load-settings`, which loads (and saves) the web server settings from/to the remote core instead of from the local file.
+Owns the `[WebServer]` section in addition to the common keys (including `--force-zlib`). It also accepts `-L` / `--load-settings`, which loads (and saves) the web server settings from/to the remote core instead of from the local file.
 
 ### amulegui (Remote GUI)
 
-Reads and writes only the `[EC]` keys `Host`, `Port`, and `Password`, and only when the **"Remember those settings"** checkbox in the connection dialog is ticked. It reads `/EC/ZLIB` at startup but never writes it, and it stores its language under `[eMule] Language` rather than `Locale`. It uses a different command-line parser from the other two tools: it has no `--config-file`, `--host`, `--port`, or `--password` override (the config file name is fixed to `remote.conf`), and instead supports `-c` / `--config-dir` (config directory) and `-s` / `--skip` (skip the connection dialog and connect with the saved settings), alongside the standard `amule`/`amuled` flags.
+Reads and writes only the `[EC]` keys `Host`, `Port`, `Password`, and `ForceZLIB`, and only when the **"Remember those settings"** checkbox in the connection dialog is ticked. It reads `/EC/ZLIB` at startup but never writes it, and it stores its language under `[eMule] Language` rather than `Locale`. It uses a different command-line parser from the other two tools: it has no `--config-file`, `--host`, `--port`, or `--password` override (the config file name is fixed to `remote.conf`), and instead supports `-c` / `--config-dir` (config directory) and `-s` / `--skip` (skip the connection dialog and connect with the saved settings), alongside the standard `amule`/`amuled` flags.
 
 ## Complete example
 
@@ -111,21 +105,20 @@ The following is a representative `remote.conf` with the EC password set to `hel
 Locale=
 
 [EC]
-Host=localhost
+Host=127.0.0.1
 Port=4712
 Password=5D41402ABC4B2A76B9719D911017C592
 ZLIB=1
+ForceZLIB=0
 
-[Webserver]
+[WebServer]
 Port=4711
 UPnPWebServerEnabled=0
+UPnPTCPPort=50001
 Template=default
 UseGzip=0
 AllowGuest=0
 AdminPassword=
 GuestPassword=
 PageRefreshTime=120
-
-[WebServer]
-UPnPTCPPort=50001
 ```

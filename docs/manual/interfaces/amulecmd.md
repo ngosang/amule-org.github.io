@@ -161,7 +161,7 @@ Command-line flags:
 
 | Flag | Description |
 |---|---|
-| `-h, --host <hostname>` | Host running `amuled` (default: localhost); may be an IP address or DNS name |
+| `-h, --host <hostname>` | Host running `amuled` (default: 127.0.0.1); may be an IP address or DNS name |
 | `-p, --port <port>` | EC port (default: 4712) |
 | `-P, --password <password>` | EC password (plaintext; converted to an MD5 hash internally) |
 | `-f, --config-file <path>` | Use the given configuration file (default: `~/.aMule/remote.conf`) |
@@ -171,6 +171,7 @@ Command-line flags:
 | `-c, --command "<command>"` | Execute a single command and exit |
 | `-w, --write-config` | Write the connection settings to `remote.conf` and exit |
 | `--create-config-from=<path>` | Create `remote.conf` from a valid aMule config file and exit |
+| `--force-zlib` | Force ZLIB compression even when the core resolves to a local/LAN IP; useful over a VPN tunnel that resolves to a LAN IP. Sets [`/EC/ForceZLIB`](../configuration/config-files/remote-conf.md#ec-section) |
 | `--version` | Print the program version |
 | `--help` | Show the usage description |
 
