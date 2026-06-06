@@ -21,9 +21,9 @@ To protect data integrity and enable parallel downloading, every file is divided
 - A 315 KB file → 1 chunk
 - A 100 MB file → 11 chunks (10 × 9.28 MB + 7.2 MB)
 
-Each chunk has its own **MD4 hash**. A client only needs to re-download a corrupt chunk, not the entire file. The integrity system is further strengthened by [AICH](aich.md).
+Each chunk has its own **[MD4 hash](../concepts.md#md4-hash-ed2k-hash)**. A client only needs to re-download a corrupt chunk, not the entire file. The integrity system is further strengthened by [AICH](aich.md).
 
-Clients upload **one chunk at a time** to a given peer. Even if a remote client is at the top of two separate file queues for the same uploader, only one upload slot is granted at a time.
+Clients upload **one chunk at a time** to a given peer. Even if a remote client is at the top of two separate file queues for the same uploader, only one [upload slot](../concepts.md#upload-slot) is granted at a time.
 
 ## Servers
 
@@ -49,7 +49,7 @@ See [Server List file](../../developer/file-formats/server-met.md) for the file 
 
 A **static server** is one that is permanently kept in your server list and never automatically removed, even if it becomes unreachable. This is useful for servers you trust and want to ensure are always available.
 
-Configure static servers in **Preferences → Server → Static servers** or by editing the `staticservers.dat` file.
+Configure static servers in **[Preferences → Servers](../../manual/interfaces/gui/preferences.md#servers) → Static servers** or by editing the `staticservers.dat` file.
 
 ### Avoiding Fake Servers
 
@@ -59,18 +59,18 @@ Some servers in the wild are operated by organisations that log user activity or
 
 Every client on the eD2k network is assigned a unique **ID** by the server it connects to. Clients whose Standard Client TCP port (default: 4662) is reachable from the internet receive a **High ID** and can accept direct incoming connections from any peer. Clients with a blocked TCP port receive a **Low ID** (any value below 16,777,216); two Low ID clients cannot transfer data to each other, and many servers reject Low ID clients entirely.
 
-For the full explanation of the ID system and how to calculate your High ID, see **[High ID and Low ID](high-id.md)**. For how to configure your firewall and router to get a High ID (and how the Kademlia "open/firewalled" status relates to this), see **[Network Connectivity](../../manual/configuration/network-connectivity.md)**.
+For the full explanation of the ID system and how to calculate your High ID, see **[High ID and Low ID](high-id.md)**. For how to configure your firewall and router to get a High ID (and how the Kademlia ["open/firewalled" status](../kademlia.md#open-vs-firewalled-status) relates to this), see **[Network Connectivity](../../manual/configuration/network-connectivity.md)**.
 
 ## Ports
 
-aMule uses three configurable ports (all in **Preferences → Connection**) and two fixed service ports:
+aMule uses three configurable ports (all in **[Preferences → Connection](../../manual/interfaces/gui/preferences.md#connection)**) and two fixed service ports:
 
 | Port | Protocol | Direction | Purpose |
 |---|---|---|---|
 | 4661 | TCP | Outgoing | eD2k server listening port (server-side only) |
 | **4662** | TCP | Incoming + Outgoing | **Primary data port** — client-to-client transfers. Must be open for High ID. |
-| 4665 | UDP | Incoming + Outgoing | Global searches, source queries, Kademlia. Always TCP port + 3. |
-| 4672 | UDP | Incoming + Outgoing | eMule protocol extensions, queue rating, Kademlia. Required for Kad "open" status. |
+| 4665 | UDP | Incoming + Outgoing | Global searches, source queries, [Kademlia](../kademlia.md). Always TCP port + 3. |
+| 4672 | UDP | Incoming + Outgoing | eMule protocol extensions, queue rating, Kademlia. Required for Kad ["open" status](../kademlia.md#open-vs-firewalled-status). |
 | 4711 | TCP | Incoming | [`amuleweb`](../../manual/interfaces/amuleweb.md) listening port |
 | 4712 | TCP | Incoming | [External Connections (EC)](../../developer/ec-protocol.md) port — for [`amulecmd`](../../manual/interfaces/amulecmd.md), [`amulegui`](../../manual/interfaces/gui/amulegui.md) |
 
@@ -93,11 +93,11 @@ A client must be auxiliary-port-aware to use this feature. aMule has supported a
 
 ### Search results cap
 
-Servers return a maximum of **300 results** per search query. There is no way to retrieve more from a single query; try narrowing your search terms.
+Servers return a maximum of **300 results** per search query. There is no way to retrieve more from a single query; try narrowing your search terms. See [Searches](../../manual/interfaces/gui/searches.md) for how to search in aMule.
 
 ### File size limit
 
-The maximum file size supported by the eD2k network is **256 GB** (274,877,906,944 bytes). Older client versions (eMule ≤ 0.46, aMule 2.1.x) had a limit of approximately 4 GB (4,294,967,295 bytes).
+The maximum file size supported by the eD2k network is **256 GB** (274,877,906,944 bytes). Older client versions (eMule ≤ 0.46, aMule 2.1.x) had a limit of approximately 4 GB; aMule's actual legacy limit was 4,290,048,000 bytes (the 32-bit `2³²−1` maximum rounded down to a whole number of chunks).
 
 ### Filename length
 
@@ -115,7 +115,7 @@ The eD2k network enforces a minimum upload contribution:
 
 This enforcement is implemented in the client software. It can be bypassed by modifying the client, but doing so typically results in being banned by servers.
 
-Additionally, no client can allocate fewer than **3 upload slots**, meaning the minimum per-slot rate is `upload_limit / 3` KB/s.
+Additionally, no client can allocate fewer than **2 upload slots**, meaning the minimum per-slot rate is `upload_limit / 2` KB/s.
 
 ### Low ID limitations
 
@@ -126,15 +126,16 @@ Two clients with Low IDs **cannot exchange data** with each other. For a Low ID 
 The upload queue priority is determined by a **score** value:
 
 ```
-score = rate × time_waiting_in_seconds / 100
+score = time_waiting_in_seconds × credit_multiplier × file_priority_multiplier
 ```
 
-The **rate** starts at 100 for every queued client and is modified by:
+The base of the score is your waiting time in seconds; it is then scaled by the **[score modifiers](../concepts.md#score-modifiers)** below. Each modifier is a neutral × 1.0 unless one of these conditions applies:
 
 | Modifier | Factor |
 |---|---|
 | Credits accumulated | × 1 to × 10 |
-| File priority: Release | × 1.8 |
+| File priority: Release | × 250 |
+| File priority: Very High | × 1.8 |
 | File priority: High | × 0.9 |
 | File priority: Normal | × 0.7 |
 | File priority: Low | × 0.6 |
@@ -142,9 +143,9 @@ The **rate** starts at 100 for every queued client and is modified by:
 | Old/abusive clients | × 0.5 |
 | Banned clients | × 0 |
 
-Clients with a modifier above 1 are shown in yellow in the queue icon.
+Clients with a modifier above 1 are shown in yellow in the queue icon. File upload priority is set per file in aMule — see [Upload Priority](../../manual/interfaces/gui/priority.md#upload-priority), including the special [Release priority](../../manual/interfaces/gui/priority.md#release-priority).
 
-**Credits** are earned when another client uploads to you. They are bilateral (per-client-pair) and not global. The credits modifier is:
+**Credits** are earned when another client uploads to you. They are bilateral (per-client-pair) and not global, and rely on [Secure User Identification](secure-user-identification.md) so that credits cannot be claimed by a client impersonating another. The credits modifier is:
 
 ```
 modifier = min(
@@ -153,6 +154,6 @@ modifier = min(
 )
 ```
 
-where totals are in MB. The modifier is clamped to the range [1, 10]. Credits are stored in [`clients.met`](../../developer/file-formats/clients-met.md).
+where totals are in MB. The modifier is clamped to the range [1, 10]. No bonus applies (modifier stays at 1) until you have received at least **1 MB** (1,000,000 bytes) from that client. Credits are stored in [`clients.met`](../../developer/file-formats/clients-met.md).
 
 See [Concepts & Glossary](../concepts.md) for detailed definitions of queue, queue rank, and slots.

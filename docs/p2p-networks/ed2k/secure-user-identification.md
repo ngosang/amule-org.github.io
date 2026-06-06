@@ -59,7 +59,7 @@ When a client receives the remote client's digital signature, it verifies it usi
 
 A valid signature proves that the sender possesses the private key matching the public key it declared (clients only ever declare a **public** key, never a private one). If verification passes, the remote client is successfully identified. The process is symmetric — both clients verify each other.
 
-If identification fails, the client is **not credited**: while secure identification is available, no upload/download credits are accumulated for an unidentified peer (its [score](../concepts.md#rate-score-modifier) drops to the minimum). aMule does not [ban](../concepts.md#ban) the peer — it simply does not trust its claimed identity.
+If identification fails, the client is **not credited**: while secure identification is available, no upload/download credits are accumulated for an unidentified peer (its [score](../concepts.md#score-modifiers) drops to the minimum). aMule does not [ban](../concepts.md#ban) the peer — it simply does not trust its claimed identity.
 
 ## Userhash and Credits
 
