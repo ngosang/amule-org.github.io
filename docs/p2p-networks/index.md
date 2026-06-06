@@ -3,11 +3,11 @@ id: index
 title: eD2k & Kademlia Networks
 ---
 
-aMule connects simultaneously to two peer-to-peer networks: the classic **[eD2k](ed2k/index.md)** (eDonkey2000) network and the serverless **[Kademlia (Kad)](kademlia.md)** network. Both networks share the same file identification system and can be used together to maximise download sources.
+aMule connects simultaneously to two peer-to-peer networks: the classic **[eD2k](ed2k/index.md)** (eDonkey2000) network and the serverless **[Kademlia (Kad)](kademlia.md)** network. Both networks share the same [file identification system](concepts.md#hashing) and can be used together to maximise download sources.
 
 ## History
 
-The eD2k protocol was created by the **eDonkey2000** application, a proprietary P2P client that pioneered the network. eDonkey2000 was eventually displaced by open-source alternatives: first **mlDonkey** (Unix-focused), then **eMule** (Windows), which spawned many derivatives including **xMule** and ultimately **aMule** — the cross-platform, open-source implementation.
+The eD2k protocol was created by the **[eDonkey2000](ed2k/clients.md#edonkey2000-20002005)** application, a proprietary P2P client that pioneered the network. eDonkey2000 was eventually displaced by open-source alternatives: first **[mlDonkey](ed2k/clients.md#mldonkey-2001present)** (Unix-focused), then **[eMule](ed2k/clients.md#emule-2002present)** (Windows), which spawned many derivatives including **[xMule](ed2k/clients.md#xmule-20032009)** and ultimately **[aMule](ed2k/clients.md#amule-2003present)** — the cross-platform, open-source implementation.
 
 The eDonkey2000 website was shut down in 2006 following a RIAA lawsuit and the software is no longer maintained. aMule is a completely independent project and is not affiliated with the original eDonkey2000 in any way.
 
@@ -21,12 +21,12 @@ Kademlia was introduced into the \*Mule ecosystem in response to the architectur
 | Requires servers | Yes | No |
 | Search scope | Server-local or global (all servers) | Distributed across all nodes |
 | Connection type | Client connects to a central server | Client bootstraps from any known node |
-| ID system | High ID / Low ID assigned by server | Open / Firewalled assigned by network |
+| ID system | [High ID / Low ID](ed2k/high-id.md) assigned by server | [Open / Firewalled](kademlia.md#open-vs-firewalled-status) assigned by network |
 | Privacy | Server sees your IP and searches | No central point of observation |
 | Scalability | Limited by server capacity | Scales with number of participants |
 | Introduced | Original eD2k protocol | aMule 2.1.0 (2006) |
 
-Both networks use the same **MD4-based file hashes** and **9.28 MB chunk** system, so the same files can be downloaded from sources on either network simultaneously.
+Both networks use the same **[MD4-based file hashes](concepts.md#hashing)** and **[9.28 MB chunk](concepts.md#chunks-and-data-integrity)** system, so the same files can be downloaded from sources on either network simultaneously.
 
 ## In This Section
 

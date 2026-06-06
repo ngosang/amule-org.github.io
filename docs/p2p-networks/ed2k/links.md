@@ -3,7 +3,7 @@ id: links
 title: eD2k Links
 ---
 
-An **eD2k link** is a URI that refers to a file, server, or server list in the eD2k network. aMule can process these links to add downloads to the queue, add servers to the server list, or import full server lists.
+An **eD2k link** is a URI that refers to a file, server, or server list in the [eD2k network](index.md). aMule can process these links to add downloads to the queue, add servers to the [server list](servers.md#the-server-list), or import full server lists.
 
 ## Link Format
 
@@ -17,7 +17,7 @@ The pipe character (`|`) acts as a field delimiter. Always wrap an eD2k URL in d
 
 ## File Links
 
-A file link adds a file to your download queue.
+A file link adds a file to your [download queue](../concepts.md#download-queue).
 
 ### Basic syntax
 
@@ -30,7 +30,7 @@ ed2k://|file|NAME|SIZE|MD4-HASH|/
 | `file` | Literal — indicates this is a file link |
 | `NAME` | Filename (only informational; identity is determined by hash + size) |
 | `SIZE` | File size in bytes |
-| `MD4-HASH` | 32-character hex MD4 hash of the file |
+| `MD4-HASH` | 32-character hex [MD4 hash](../concepts.md#md4-hash-ed2k-hash) of the file |
 
 ### Optional fields
 
@@ -38,17 +38,34 @@ Additional fields can be appended after the MD4 hash (before the closing `/`):
 
 | Field | Format | Description |
 |---|---|---|
-| Part hashes | `p=HASH1:HASH2:...` | MD4 hash of each chunk in order |
+| Part hashes | `p=HASH1:HASH2:...` | MD4 hash of each [chunk](../concepts.md#chunk) in order |
 | Root Hash | `h=ROOTHASH` | AICH Root Hash (see [AICH](aich.md)) |
-| URL sources | `s=URL` | Direct HTTP/FTP URL for the file (aMule silently ignores this) |
+| URL sources | `s=URL` | Direct HTTP/FTP URL for the file. **Not supported by aMule** — like any unrecognized field, it is silently skipped |
 
-Sources are appended **after** the closing slash, in a separate field:
+Besides the fields above, aMule also accepts a `sources` field (described below). **Any unrecognized field is silently skipped.**
+
+### Sources
+
+Sources (peers that already have the file) are appended **after** the closing slash, in a separate field:
 
 ```
-ed2k://|file|NAME|SIZE|MD4-HASH|/|sources,IP:PORT,IP:PORT,...|/
+ed2k://|file|NAME|SIZE|MD4-HASH|/|sources,SOURCE1,SOURCE2,...|/
 ```
 
-A hostname may be used instead of a raw IP address for sources.
+Each source is a comma-separated entry with the following format:
+
+```
+(IP|HOSTNAME):PORT[:CRYPTOPTIONS[:CLIENTHASH]]
+```
+
+| Field | Description |
+|---|---|
+| `IP`/`HOSTNAME` | IP address or hostname of the peer (both are accepted; hostnames are resolved later) |
+| `PORT` | TCP port the peer listens on (1–65535) |
+| `CRYPTOPTIONS` | Optional. A single byte with the peer's encryption ([protocol obfuscation](../../manual/configuration/config-files/amule-conf.md#obfuscation-section)) options |
+| `CLIENTHASH` | Optional. The peer's MD4 [user hash](../concepts.md#userhash). Present **only** when bit `0x80` of `CRYPTOPTIONS` is set, signalling a source ready for encrypted connections |
+
+If bit `0x80` of `CRYPTOPTIONS` is set but no client hash follows, aMule rejects the link as invalid.
 
 ### Examples
 
@@ -62,8 +79,8 @@ ed2k://|file|example.zip|2407949|CC8C3B104AD58678F69858F1F9B736E9|p=HASH1:HASH2:
 # With AICH Root Hash
 ed2k://|file|example.zip|2407949|CC8C3B104AD58678F69858F1F9B736E9|h=AICHHASH|/
 
-# With pre-seeded sources
-ed2k://|file|example.zip|2407949|CC8C3B104AD58678F69858F1F9B736E9|/|sources,192.0.2.1:4662,198.51.100.5:4662|/
+# With pre-seeded sources (plain IP, and an encryption-capable source with its client hash)
+ed2k://|file|example.zip|2407949|CC8C3B104AD58678F69858F1F9B736E9|/|sources,192.0.2.1:4662,198.51.100.5:4662:131:0123456789ABCDEF0123456789ABCDEF|/
 ```
 
 ### Why the filename is irrelevant to identity
@@ -103,7 +120,7 @@ ed2k://|serverlist|ADDRESS|/
 | `serverlist` | Literal — indicates this is a server list link |
 | `ADDRESS` | Full URL to the server list file (including filename) |
 
-If you already have a server list, the remote servers are merged into it. If you have no existing server list, the imported list replaces it.
+If you already have a server list, the remote servers are merged into it. If you have no existing server list, the imported list replaces it. For guidance on keeping a trustworthy list, see [Maintaining a safe server list](servers.md#maintaining-a-safe-server-list).
 
 ## The `ed2k` Command
 
@@ -135,4 +152,4 @@ On Debian/Ubuntu you must install the **`amule-utils`** package (and also **`amu
 
 ## Browser Configuration
 
-For instructions on configuring Firefox, Opera, Konqueror, Windows, macOS, and remote handling via `amulecmd`, see [ed2k — ED2K Link Handler](../../manual/utilities/ed2k.md).
+For instructions on configuring Firefox, Opera, Konqueror, Windows, macOS, and remote handling via [`amulecmd`](../../manual/interfaces/amulecmd.md), see [ed2k — ED2K Link Handler](../../manual/utilities/ed2k.md).

@@ -129,7 +129,7 @@ The **Downloaded (Total)** field shows the total data you have ever downloaded f
 
 ### DL/UP Modifier
 
-The **DL/UP modifier** field shows the client's current [score modifier](../../../p2p-networks/concepts.md#rate-score-modifier), which affects its position in the upload queue:
+The **DL/UP modifier** field shows the client's current [score modifier](../../../p2p-networks/concepts.md#score-modifiers), which affects its position in the upload queue:
 
 ![DL/UP modifier](/img/docs/usage/window_client16.jpg)
 
